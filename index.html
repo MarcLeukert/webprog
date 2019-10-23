@@ -3,12 +3,33 @@
   <head>
     <meta charset="utf-8">
     <title>Fahrtenbuch</title>
+    <script>
+          window.addEventListener("load", () => {
+              let pages = [
+                  {
+                      name: "page-neuesKonto",              // Name zum Aufrufen der Seite
+                      klass: PageNeuesKonto,                // Klasse, die die Seite bereitstellt
+                      label: "Neues Konto",             // Bezeichnung der Seite
+                      hidden: false,                  // Seite kann im Menü ausgewählt werden
+                  },
+                  {
+                      name: "page-neueFahrt",
+                      klass: PageNeueFahrt,
+                      label: "Neue Fahrt hinzufügen",
+                      hidden: false,                  // Seite kann im Menü ausgewählt werden
+                  },
+              ];
+
+              let app = new App(pages);
+              app.showPage("page-list");
+          });
+      </script>
   </head>
   <body>
     <header>
       <h1>Fahrtenbuch</h1>
     </header>
-    <button type="button" name="newTrip">New Trip</button>
+    <button type="button" name="newTrip">Neue Fahrt</button>
     <table>
       <caption>Latest 5 Trips</caption>
       <thead>

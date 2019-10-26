@@ -1,3 +1,79 @@
-.body{
+.header {
+  background-color: lightblue;
+  width: 100%;
+  height: 100%;
+}
 
+.body {
+  background-image: url(http://www.ogitix.de/fileadmin/dokumentation/ms-crm/Book_%20Microsoft%20CRM%20Schnittstelle_de_html/Files/187197/User_Add_35.jpg);
+  background-repeat: no-repeat;
+  background-color: lightgrey;
+  float: left;
+  width: 100%;
+  height: 100vh;
+}
+
+.nachname {
+  margin-left: 12em;
+  font-size: 14pt;
+  margin-bottom: 4em;
+}
+
+.vorname {
+  margin-top: 2em;
+  margin-left: 12em;
+  font-size: 14pt;
+  margin-bottom: 1.5em;
+}
+
+
+
+button {
+  margin-left: 20em;
+  background: none;
+  color: #000;
+  height: 40px;
+  border: 1px solid #000000;
+  font-size: 14px;
+  transition: .6s;
+  overflow: hidden;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:before {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rbga(255, 255, 255, .5);
+  height: 100%;
+  opacity: 0.5s;
+  filter: blur(30px);
+}
+
+button:after {
+  content: '';
+  display: block;
+  position: absolute;
+  background: rbga(255, 255, 255, .2);
+  height: 100%;
+  opacity: 0;
+  filter: blur(30px);
+}
+
+button:hover {
+  background: #338033;
+  cursor:  pointer;
+}
+
+button:hover:before {
+  opacity: 0.6;
+  transition: 0.7s;
+}
+
+button:hover:after {
+  opacity: 1;
+  transition: 0.7s;
 }

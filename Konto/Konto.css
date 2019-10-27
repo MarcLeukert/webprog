@@ -1,35 +1,39 @@
 .header {
-  background-color: lightblue;
+  background-color: #009bff;
   width: 100%;
   height: 100%;
 }
 
 .body {
-  background-image: url(http://www.ogitix.de/fileadmin/dokumentation/ms-crm/Book_%20Microsoft%20CRM%20Schnittstelle_de_html/Files/187197/User_Add_35.jpg);
-  background-repeat: no-repeat;
-  background-color: lightgrey;
+  background-image: url(http://www.ogitix.de/fileadmin/dokumentation/ms-crm/Book_%20Microsoft%20CRM%20Schnittstelle_de_html/Files/187197/User_Add_35.jpg),
+    url(http://www.ogitix.de/fileadmin/dokumentation/ms-crm/Book_%20Microsoft%20CRM%20Schnittstelle_de_html/Files/187197/User_Add_35.jpg);
+  background-repeat: no-repeat, no-repeat;
+  background-color: #e4eaff;
+  background-size: 30%;
+  background-position: center left, center right;
   float: left;
   width: 100%;
-  height: 100vh;
+  height: 91vh;
+}
+
+.vorname {
+  margin-top: 8em;
+  transform: translateX(42%);
+  font-size: 14pt;
+  margin-bottom: 3em;
 }
 
 .nachname {
-  margin-left: 12em;
+  transform: translateX(42%);
   font-size: 14pt;
   margin-bottom: 4em;
 }
 
-.vorname {
-  margin-top: 2em;
-  margin-left: 12em;
-  font-size: 14pt;
-  margin-bottom: 1.5em;
+.b {
+  transform: translateX(45%);
 }
 
-
-
 button {
-  margin-left: 20em;
   background: none;
   color: #000;
   height: 40px;
@@ -64,8 +68,8 @@ button:after {
 }
 
 button:hover {
-  background: #338033;
-  cursor:  pointer;
+  background: #64d02f;
+  cursor: pointer;
 }
 
 button:hover:before {

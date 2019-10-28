@@ -1,46 +1,70 @@
-.header {
-  background-color: #009bff;
-  width: 100%;
-  height: 100%;
+html, body {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 0;
+  margin: 0;
+  margin-left: 0;
 }
 
-.body {
+body {
   background-image: url(http://www.ogitix.de/fileadmin/dokumentation/ms-crm/Book_%20Microsoft%20CRM%20Schnittstelle_de_html/Files/187197/User_Add_35.jpg),
     url(http://www.ogitix.de/fileadmin/dokumentation/ms-crm/Book_%20Microsoft%20CRM%20Schnittstelle_de_html/Files/187197/User_Add_35.jpg);
   background-repeat: no-repeat, no-repeat;
-  background-color: #e4eaff;
+  background-position: left 120px, right 120px;
   background-size: 30%;
-  background-position: center left, center right;
-  float: left;
+}
+
+.header {
+  background: linear-gradient(to bottom, blue, #e6e6ff);
   width: 100%;
-  height: 91vh;
+  height: 50px;
+  margin: 0 auto;
+  font-size: 30px;
 }
 
-.vorname {
-  margin-top: 8em;
-  transform: translateX(42%);
+.divInput {
+  background: radial-gradient(#8b8bff, white);
+  height: 300px;
+  width: 400px;
+  margin: 0 auto;
+  transform: translateY(40%);
+  border-radius: 30px;
+  box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
+}
+
+.divvorundnachname {
+  margin: 0 auto;
+  width: 130px;
+  height: 200px;
+}
+
+.divvorname {
   font-size: 14pt;
-  margin-bottom: 3em;
+  margin: 0 auto;
+  margin-bottom: 28px;
 }
 
-.nachname {
-  transform: translateX(42%);
+.divnachname {
   font-size: 14pt;
-  margin-bottom: 4em;
 }
 
-.b {
-  transform: translateX(45%);
+.divbutton {
+  transform: translateX(11%);
+  margin: 0 auto;
+  width: 130px;
+  height: 50px;
+  display: block;
 }
 
 button {
   background: none;
   color: #000;
   height: 40px;
-  border: 1px solid #000000;
+  border: 1 solid #000000;
   font-size: 14px;
-  transition: .6s;
+  transition: 1s;
   overflow: hidden;
+  box-shadow: 3px 2px 2px rgba(0,0,0,0.5);
 }
 
 button:focus {
@@ -53,7 +77,7 @@ button:before {
   position: absolute;
   background: rbga(255, 255, 255, .5);
   height: 100%;
-  opacity: 0.5s;
+  opacity: 0.3s;
   filter: blur(30px);
 }
 
@@ -65,19 +89,20 @@ button:after {
   height: 100%;
   opacity: 0;
   filter: blur(30px);
+
 }
 
 button:hover {
-  background: #64d02f;
+  background: #f8f8fb;
   cursor: pointer;
 }
 
 button:hover:before {
   opacity: 0.6;
-  transition: 0.7s;
+  transition: 1s;
 }
 
 button:hover:after {
   opacity: 1;
-  transition: 0.7s;
+  transition: 1s;
 }

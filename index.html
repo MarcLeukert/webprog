@@ -6,10 +6,10 @@
   <title>Fahrtenbuch</title>
   <script src="./app.js" charset="utf-8"> </script>
   <script src="./Konto/Konto.js"> </script>
+  <link rel="stylesheet" href="überischt.css">
   <script type="./neueFahrt/neueFahrt.js"></script>
   <script type="text/javascript">
-    let pages = [
-      {
+    let pages = [{
         url: "/neuesKonto",
         resource: "/Konto/neuesKonto.html",
         klasse: neuesKonto
@@ -20,7 +20,7 @@
         klasse: neueFahrt
       }
     ];
-    window.addEventListener("load", ()=>{
+    window.addEventListener("load", () => {
       let app = new App(pages);
       app.run();
     });
@@ -31,7 +31,7 @@
   <header>
     <h1>Fahrtenbuch</h1>
   </header>
-  <button type="button" name="newTrip">Neue Fahrt</button>
+  <button type="button" name="newTrip" href="#/neueFahrt">Neue Fahrt</button>
   <table>
     <caption>Latest 5 Trips</caption>
     <thead>
@@ -61,11 +61,11 @@
     </tbody>
   </table>
   <button type="button" name="newUser" id="newUser">Neuer Benutzer</button>
-<div>
-  <li>
-    <a href="#/neueFahrt">Test</a>
-  </li>
-</div>
+  <div>
+    <li>
+      <a href="#/neueFahrt">Test</a>
+    </li>
+  </div>
   <table>
     <caption>Users</caption>
     <thead>

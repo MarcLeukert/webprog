@@ -4,24 +4,22 @@
 <head>
   <meta charset="utf-8">
   <title>Fahrtenbuch</title>
-  <script>
-    window.addEventListener("load", () => {  //aufruf der funktion mit lamda
-      let pages = [{
-          name: "page-neuesKonto", // Name zum Aufrufen der Seite
-          klass: PageNeuesKonto, // Klasse, die die Seite bereitstellt
-          label: "Neues Konto", // Bezeichnung der Seite
-          hidden: false, // Seite kann im Menü ausgewählt werden
-        },
-        {
-          name: "page-neueFahrt",
-          klass: PageNeueFahrt,
-          label: "Neue Fahrt hinzufügen",
-          hidden: false, // Seite kann im Menü ausgewählt werden
-        },
-      ];
-
+  <script type="text/javascript">
+    let pages = [
+      {
+        url: "/neuesKonto",
+        resource: "/Konto/neuesKonto.html",
+        klasse: neuesKonto
+      },
+      {
+        url: "/neueFahrt",
+        resource: "/neueFahrt.html",
+        klasse: neueFahrt
+      }
+    ];
+    window.addEventListener("load", ()=>{
       let app = new App(pages);
-      app.showPage("page-list");
+      app.run();
     });
   </script>
 </head>
@@ -60,6 +58,11 @@
     </tbody>
   </table>
   <button type="button" name="newUser" id="newUser">Neuer Benutzer</button>
+<div>
+  <li>
+    <a href="#/neueFahrt">Test</a>
+  </li>
+</div>
   <table>
     <caption>Users</caption>
     <thead>

@@ -4,33 +4,34 @@
 <head>
   <meta charset="utf-8">
   <title>Fahrtenbuch</title>
-  <script>
-    window.addEventListener("load", () => {  //aufruf der funktion mit lamda
-      let pages = [{
-          name: "page-neuesKonto", // Name zum Aufrufen der Seite
-          klass: PageNeuesKonto, // Klasse, die die Seite bereitstellt
-          label: "Neues Konto", // Bezeichnung der Seite
-          hidden: false, // Seite kann im Menü ausgewählt werden
-        },
-        {
-          name: "page-neueFahrt",
-          klass: PageNeueFahrt,
-          label: "Neue Fahrt hinzufügen",
-          hidden: false, // Seite kann im Menü ausgewählt werden
-        },
-      ];
-
+  <script src="./app.js" charset="utf-8"> </script>
+  <script src="./Konto/Konto.js"> </script>
+  <link rel="stylesheet" href="überischt.css">
+  <script type="./neueFahrt/neueFahrt.js"></script>
+  <script type="text/javascript">
+    let pages = [{
+        url: "/neuesKonto",
+        resource: "/Konto/neuesKonto.html",
+        klasse: neuesKonto
+      },
+      {
+        url: "/neueFahrt",
+        resource: "/neueFahrt/neueFahrt.html",
+        klasse: neueFahrt
+      }
+    ];
+    window.addEventListener("load", () => {
       let app = new App(pages);
-      app.showPage("page-list");
+      app.run();
     });
   </script>
 </head>
 
 <body>
-  <header>
-    <h1>Fahrtenbuch</h1>
+  <header class="header">
+    <div align="center">Fahrtenbuch📓</div>
   </header>
-  <button type="button" name="newTrip">Neue Fahrt</button>
+  <button type="button" name="newTrip" href="#/neueFahrt">Neue Fahrt</button>
   <table>
     <caption>Latest 5 Trips</caption>
     <thead>
@@ -60,6 +61,11 @@
     </tbody>
   </table>
   <button type="button" name="newUser" id="newUser">Neuer Benutzer</button>
+  <div>
+    <li>
+      <a href="#/neueFahrt">Test</a>
+    </li>
+  </div>
   <table>
     <caption>Users</caption>
     <thead>

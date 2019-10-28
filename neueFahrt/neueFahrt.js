@@ -4,7 +4,7 @@ class neueFahrt {
   }
 async show(){
     console.log("Neue Fahrt klappt");
-    let html = await fetch("neueFahrt.html");
+    let html = await fetch("neueFahrt/neueFahrt.html");
     let htmlContent ="";
 
     if(html.ok){

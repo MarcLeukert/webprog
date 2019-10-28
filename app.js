@@ -3,7 +3,7 @@ class App {
     this._pages = pages;
   }
   run(){
-    window.addEventListener("hashchange" ()=> {
+    window.addEventListener("hashchange", ()=> {
     this._handleRoute();
     });
   }

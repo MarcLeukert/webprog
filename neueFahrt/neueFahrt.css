@@ -1,0 +1,119 @@
+.divUeberschrift{
+  margin: auto;
+  text-align: center;
+}
+.divGanzerBlock{
+  background-color: grey;
+  width: 80%;
+  height: auto;
+  margin: auto; //div zentrieren
+  display: inline-block;
+
+}
+
+.body{
+  background-color: red;
+  font-style: normal;
+  font-family: serif;
+}
+
+.spanInput{
+  background-color: green;
+  margin: 0px;
+  width: 40%;
+  display: inline-block;
+  font-size: 16pt;
+}
+
+.spanAttribut{
+  background-color: blue;
+  width: 30%;
+  display: inline-block;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  vertical-align: top;
+  font-size: 16pt;
+}
+.butErstellen{
+  margin: 30px;
+  text-align: center;
+}
+.divTAMF{
+  padding-top: 0px;
+  display: inline;
+  width: 60%;
+  background-color: red;
+}
+.classSelect{
+  font-size: 16pt;
+  font-family:serif;
+}
+.myButton {
+	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	background-color:#768d87;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	padding:11px 23px;
+	text-decoration:none;
+	text-shadow:0px -1px 0px #2b665e;
+}
+.myButton:hover {
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color:#6c7c7c;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+
+button {
+  background: none;
+  color: #000;
+  height: 40px;
+  border: 1 solid #000000;
+  font-size: 14px;
+  transition: 1s;
+  overflow: hidden;
+  box-shadow: 3px 2px 2px rgba(0,0,0,0.5);
+}
+
+button:focus {
+  outline: none;
+}
+
+button:before {
+  display: block;
+  position: absolute;
+  height: 100%;
+  opacity: 0.3;
+}
+
+button:after {
+  display: block;
+  position: absolute;
+  height: 100%;
+  opacity: 0;
+}
+
+button:hover {
+  background: #f8f8fb;
+  cursor: pointer;
+}
+
+button:hover:before {
+  opacity: 0.6;
+  transition: 1s;
+}
+
+button:hover:after {
+  opacity: 1;
+  transition: 1s;
+}

@@ -72,24 +72,17 @@ button:focus {
 }
 
 button:before {
-  content: '';
   display: block;
   position: absolute;
-  background: rbga(255, 255, 255, .5);
   height: 100%;
-  opacity: 0.3s;
-  filter: blur(30px);
+  opacity: 0.3;
 }
 
 button:after {
-  content: '';
   display: block;
   position: absolute;
-  background: rbga(255, 255, 255, .2);
   height: 100%;
   opacity: 0;
-  filter: blur(30px);
-
 }
 
 button:hover {

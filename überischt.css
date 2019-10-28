@@ -6,14 +6,6 @@ html, body {
   margin-left: 0;
 }
 
-body {
-  background-image: url(http://www.ogitix.de/fileadmin/dokumentation/ms-crm/Book_%20Microsoft%20CRM%20Schnittstelle_de_html/Files/187197/User_Add_35.jpg),
-    url(http://www.ogitix.de/fileadmin/dokumentation/ms-crm/Book_%20Microsoft%20CRM%20Schnittstelle_de_html/Files/187197/User_Add_35.jpg);
-  background-repeat: no-repeat, no-repeat;
-  background-position: left 120px, right 120px;
-  background-size: 30%;
-}
-
 .header {
   background: linear-gradient(to bottom, blue, #e6e6ff);
   width: 100%;
@@ -22,39 +14,7 @@ body {
   font-size: 30px;
 }
 
-.divInput {
-  background: radial-gradient(#8b8bff, white);
-  height: 300px;
-  width: 400px;
-  margin: 0 auto;
-  transform: translateY(40%);
-  border-radius: 30px;
-  box-shadow: 4px 4px 6px rgba(0,0,0,0.5);
-}
 
-.divvorundnachname {
-  margin: 0 auto;
-  width: 130px;
-  height: 200px;
-}
-
-.divvorname {
-  font-size: 14pt;
-  margin: 0 auto;
-  margin-bottom: 28px;
-}
-
-.divnachname {
-  font-size: 14pt;
-}
-
-.divbutton {
-  transform: translateX(11%);
-  margin: 0 auto;
-  width: 130px;
-  height: 50px;
-  display: block;
-}
 
 button {
   background: none;

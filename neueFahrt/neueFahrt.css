@@ -1,24 +1,25 @@
 .divUeberschrift{
-  margin: auto;
+  margin: 30px;
+  margin-bottom: 50px;
   text-align: center;
 }
 .divGanzerBlock{
-  background-color: grey;
-  width: 80%;
+  background-color: #848484;
+  border-radius: 10px;
+  width: 70%;
   height: auto;
   margin: auto; //div zentrieren
   display: inline-block;
-
 }
-
-.body{
-  background-color: red;
+.divGanzerBlockInnen{
+  padding: 10px;
+}
+body{
+  background-color: #BDBDBD;
   font-style: normal;
   font-family: serif;
 }
-
 .spanInput{
-  background-color: green;
   margin: 0px;
   width: 40%;
   display: inline-block;
@@ -26,10 +27,10 @@
 }
 
 .spanAttribut{
-  background-color: blue;
   width: 30%;
   display: inline-block;
-  margin-right: 20px;
+  margin-left: 5px;
+  margin-right: 60px;
   margin-bottom: 20px;
   vertical-align: top;
   font-size: 16pt;
@@ -44,12 +45,24 @@
   width: 60%;
   background-color: red;
 }
+.divButton{
+  margin: auto;
+  text-align: center;
+}
 .classSelect{
   font-size: 16pt;
   font-family:serif;
 }
-.myButton {
-	box-shadow:inset 0px 1px 3px 0px #91b8b3;
+#divButtonHinzu{
+  margin-bottom: 20px;
+  margin-top: -15px;
+}
+.butHinzu{
+  margin-bottom: : 100px;
+  margin-top: 10px;
+}
+.butErstellen {
+	box-shadow: 3px 4px 0px 0px #2f4f4b;
 	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
 	background-color:#768d87;
 	border-radius:5px;
@@ -58,22 +71,21 @@
 	cursor:pointer;
 	color:#ffffff;
 	font-family:Arial;
-	font-size:15px;
+	font-size:17px;
 	font-weight:bold;
-	padding:11px 23px;
+	padding:12px 44px;
 	text-decoration:none;
-	text-shadow:0px -1px 0px #2b665e;
+	text-shadow:0px 1px 0px #2b665e;
 }
-.myButton:hover {
+.butErstellen:hover {
 	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
 	background-color:#6c7c7c;
 }
-.myButton:active {
+.butErstellen:active {
 	position:relative;
 	top:1px;
 }
-
-
+/*
 button {
   background: none;
   color: #000;
@@ -116,4 +128,4 @@ button:hover:before {
 button:hover:after {
   opacity: 1;
   transition: 1s;
-}
+ */

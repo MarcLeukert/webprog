@@ -8,56 +8,63 @@
   <script src="neueFahrt.js"></script>
 </head>
 
-<body>
+<body class="body">
   <div class="divUeberschrift">
     <h1>Neue Fahrt erstellen 🏎️</h1>
   </div>
   <div class="divGanzerBlock">
-    <div>
-      <span class="spanAttribut">Fahrer</span>
-      <select class="classSelect">
-        <option>Manuel</option>
-        <option>Hannes</option>
-        <option>Liam</option>
-        <option>Marc</option>
-      </select>
-    </div>
-    <div>
-      <span class="spanAttribut">Mitfahrer</span>
-      <select class="classSelect">
-        <option>Manuel</option>
-        <option>Hannes</option>
-        <option>Liam</option>
-        <option>Marc</option>
-      </select>
-      <button type="button" name="button">Neuen Mitfahrer hinzufügen</button>
-    </div>
-    <div>
-      <span class="spanAttribut">Distanz in km</span>
-      <input class="spanInput" type="number" name="" value="" placeholder="45">
-    </nav>
-    <div>
-      <span class="spanAttribut">Von</span>
-      <input class="spanInput" type="text" name="" value="" placeholder="Karlsruhe">
-    </div>
-    <div>
-      <span class="spanAttribut">Nach</span>
-      <input class="spanInput" type="text" name="" value="" placeholder="Frankfurt">
-    </div>
-    <div>
-      <span class="spanAttribut">Preis pro L</span>
-      <input class="spanInput" type="number" name="" value="" placeholder="1.3">
-    </div>
-    <div>
-      <span class="spanAttribut">Datum</span>
-      <input class="spanInput" type="date" name="" value="" placeholder="">
-    </div>
-    <div>
-      <span class="spanAttribut">Notiz</span>
-        <textarea class="spanInput" id="textareaMF">Super Mitfahrer</textarea>
-    </div>
-    <div class="myButton">
-      <button type="button" name="button">Erstellen</button>
+    <div class = "divGanzerBlockInnen">
+      <div>
+        <span class="spanAttribut">Fahrer</span>
+        <select class="classSelect" id="selectFahrer">
+          <option value="Manuel">Manuel</option>
+          <option value="Hannes">Hannes</option>
+          <option value="Liam">Liam</option>
+          <option value="Marc">Marc</option>
+        </select>
+      </div>
+      <div>
+        <span class="spanAttribut">Mitfahrer</span>
+        <select class="classSelect" id="selectMitfahrer">
+          <option value="Manuel">Manuel</option>
+          <option value="Hannes">Hannes</option>
+          <option value="Liam">Liam</option>
+          <option value="Marc">Marc</option>
+          <option value="Till">Till</option>
+          <option value="Tim">Tim</option>
+        </select>
+      </div>
+      <div id="divButtonHinzu">
+        <span class="spanAttribut"></span>
+        <button id="buttonHinzu" class="butHinzu" ype="button" name="button">Neuen Mitfahrer hinzufügen</button>
+      </div>
+      <div>
+        <span class="spanAttribut">Distanz in km</span>
+        <input class="spanInput" id="inputDistanz" type="number" name="" value="" placeholder="45">
+      </div>
+      <div>
+        <span class="spanAttribut">Von</span>
+        <input class="spanInput" id="inputVon"type="text" name="" value="" placeholder="Karlsruhe">
+      </div>
+      <div>
+        <span class="spanAttribut">Nach</span>
+        <input class="spanInput" id="inputNach" type="text" name="" value="" placeholder="Frankfurt">
+      </div>
+      <div>
+        <span class="spanAttribut">Preis pro L</span>
+        <input class="spanInput" id="inputPreis" type="number" name="" value="" placeholder="1.3">
+      </div>
+      <div>
+        <span class="spanAttribut">Datum</span>
+        <input class="spanInput" type="date" id ="inputDatum" name="" value="" placeholder="">
+      </div>
+      <div>
+        <span class="spanAttribut">Notiz</span>
+        <textarea class="spanInput" id="inputNotiz">Super Mitfahrer</textarea>
+      </div>
+      <div class="divButton">
+        <button id="butErstellen" class="butErstellen">Erstellen</button>
+      </div>
     </div>
   </div>
 </body>

@@ -11,9 +11,13 @@ class App {
     let pageURL = location.hash.slice(1);
     let matches = null;
 
-    let page = this._pages.find(p => matches = pageUrl.match(p.url));
+    let page = this._pages.find(p => matches = pageURL.match(p.url));
 
     this.currentPageObj = new page.klasse(this);
     this.currentPageObj.show();
+
+    setPageContent(){
+      let container = document.querySelector("#content");
+    }
   }
 }

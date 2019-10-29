@@ -35,6 +35,9 @@ body{
   vertical-align: top;
   font-size: 16pt;
 }
+.neueDivBox{
+  margin: 10px;
+}
 .butErstellen{
   margin: 30px;
   text-align: center;
@@ -53,9 +56,19 @@ body{
   font-size: 16pt;
   font-family:serif;
 }
+#divMitfahrer{
+  margin-bottom: -10px;
+}
 #divButtonHinzu{
+  margin-bottom: 0px;
+  margin-top: -25px;
+}
+#divWeiteresSelect{
   margin-bottom: 20px;
-  margin-top: -15px;
+}
+
+#buttonHinzu{
+  margin-bottom: 0px;
 }
 .butHinzu{
   margin-bottom: : 100px;

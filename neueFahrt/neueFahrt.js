@@ -25,7 +25,7 @@ let inputPreis = document.getElementById("inputPreis");
 let inputDatum = document.getElementById("inputDatum");
 let inputNotiz = document.getElementById("inputNotiz");
 let erstellenButton = document.getElementById("butErstellen");
-let dataArray = [];
+let dataArray = [6];
 
 erstellenButton.addEventListener("click", () => {
     console.log("Funkt");
@@ -34,31 +34,65 @@ erstellenButton.addEventListener("click", () => {
     inputNach = inputNach.value;
     inputPreis = inputPreis.value;
     inputDatum = inputDatum.value;
-    dataArray.push(inputDistanz, inputVon, inputNach, inputPreis, inputDatum);
+    if(dataArray[0]==null){
+      dataArray[0]= 0;
+    }
+    else if(dataArray[1]==null){
+      dataArray[1]=0;
+    }
+    dataArray[2]=inputDistanz, dataArray[3] =inputVon, dataArray[4] = inputNach, dataArray[5] = inputPreis, dataArray[6] = inputDatum;
     inputNotiz.innerHTML = dataArray;
 });
 
 selectFahrer.addEventListener("change", () =>{
-  console.log("Change now");
+  dataArray[0] = selectFahrer.value;
   console.log(selectFahrer.value);
-  dataArray.push(selectFahrer.value);
 });
 
 selectMitfahrer.addEventListener("change", () =>{
-  console.log("Change now");
+  if(dataArray[0]==null){
+        dataArray[i] = 0;
+  }
+  dataArray[1] = selectMitfahrer.value;
   console.log(selectMitfahrer.value);
-  dataArray.push(selectMitfahrer.value);
 });
 
 let hinzuBut = document.getElementById("buttonHinzu");
 
 hinzuBut.addEventListener("click", function(){
   console.log("Till stinkt");
-  let buttonDivBox = document.getElementById("divButtonHinzu");
-  let neuerButton = document.createElement("neuerBut");
-  let data = document.createTextNode("tachchen");
-  neuerButton.appendChild(data);
-  buttonDivBox.appendChild(neuerButton);
+  mitfahrerHinzufuegen();
 });
 
 });
+
+function mitfahrerHinzufuegen(){
+  let selectDivBox = document.getElementById("divWeiteresSelect");
+  let neuesDiv = document.createElement("div");
+  let neuesSpan = document.createElement("span");
+  let neuesSelect = document.createElement("select");
+  let data = document.createTextNode("");
+  neuesSpan.setAttribute("class","spanAttribut");
+  let optionManuel = createOption("Manuel");
+  let optionHannes = createOption("Hannes");
+  let optionLiam = createOption("Liam");
+  let optionMarc = createOption("Marc");
+  neuesSelect.options[0] = optionManuel;
+  neuesSelect.options[1] = optionHannes;
+  neuesSelect.options[2] = optionLiam;
+  neuesSelect.options[3] = optionMarc;
+  neuesSelect.setAttribute("class","classSelect");
+  neuesSpan.setAttribute("class","spanAttribut");
+  neuesDiv.setAttribute("class","neueDivBox");
+  neuesSpan.appendChild(data);
+  neuesDiv.appendChild(neuesSpan);
+  neuesDiv.appendChild(neuesSelect);
+  selectDivBox.appendChild(neuesDiv);
+}
+
+function createOption(str){
+  let option = document.createElement("option");
+  option.value = str;
+  option.text = str;
+  return option;
+}

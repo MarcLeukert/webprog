@@ -13,7 +13,7 @@
     <h1>Neue Fahrt erstellen 🏎️</h1>
   </div>
   <div class="divGanzerBlock">
-    <div class = "divGanzerBlockInnen">
+    <div class="divGanzerBlockInnen">
       <div>
         <span class="spanAttribut">Fahrer</span>
         <select class="classSelect" id="selectFahrer">
@@ -23,7 +23,7 @@
           <option value="Marc">Marc</option>
         </select>
       </div>
-      <div>
+      <div id="divMitfahrer">
         <span class="spanAttribut">Mitfahrer</span>
         <select class="classSelect" id="selectMitfahrer">
           <option value="Manuel">Manuel</option>
@@ -34,9 +34,12 @@
           <option value="Tim">Tim</option>
         </select>
       </div>
-      <div id="divButtonHinzu">
+      <div>
         <span class="spanAttribut"></span>
-        <button id="buttonHinzu" class="butHinzu" ype="button" name="button">Neuen Mitfahrer hinzufügen</button>
+        <button id="buttonHinzu" class="butHinzu" ype="button" name="button">Mitfahrer hinzufügen</button>
+      </div>
+      <div id="divWeiteresSelect">
+        <!-- to be filled by JS !-->
       </div>
       <div>
         <span class="spanAttribut">Distanz in km</span>
@@ -44,7 +47,7 @@
       </div>
       <div>
         <span class="spanAttribut">Von</span>
-        <input class="spanInput" id="inputVon"type="text" name="" value="" placeholder="Karlsruhe">
+        <input class="spanInput" id="inputVon" type="text" name="" value="" placeholder="Karlsruhe">
       </div>
       <div>
         <span class="spanAttribut">Nach</span>
@@ -56,7 +59,7 @@
       </div>
       <div>
         <span class="spanAttribut">Datum</span>
-        <input class="spanInput" type="date" id ="inputDatum" name="" value="" placeholder="">
+        <input class="spanInput" type="date" id="inputDatum" name="" value="" placeholder="">
       </div>
       <div>
         <span class="spanAttribut">Notiz</span>

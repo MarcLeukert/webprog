@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Fahrtenbuch</title>
+  <script src="./app.js" charset="utf-8"> </script>
+  <script src="./Konto/Konto.js"> </script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="kt.css" />
+  <script type="./neueFahrt/neueFahrt.js"></script>
+  <script type="text/javascript">
+    let pages = [{
+        url: "/neuesKonto",
+        resource: "/Konto/neuesKonto.html",
+        klasse: neuesKonto
+      },
+      {
+        url: "/neueFahrt",
+        resource: "/neueFahrt/neueFahrt.html",
+        klasse: neueFahrt
+      }
+    ];
+    window.addEventListener("load", () => {
+      let app = new App(pages);
+      app.run();
+    });
+  </script>
+</head>
+
+<body>
+  <header class="header">
+    <div align="center">Fahrtenbuch📓</div>
+  </header>
+  <button type="button" name="newTrip" href="#/neueFahrt">Neue Fahrt</button>
+  <table id="fahrtenTable">
+    <caption>Latest 5 Trips</caption>
+    <thead>
+      <tr>
+        <th>Start</th>
+        <th>Destination</th>
+        <th>Distance</th>
+        <th>Date</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Karlsruhe</td>
+        <td>Lübbecke</td>
+        <td>520km</td>
+        <td>10/24/2019</td>
+        <td>45€</td>
+      </tr>
+      <tr>
+        <td>Lübbecke</td>
+        <td>Karlsruhe</td>
+        <td>512km</td>
+        <td>10/27/2019</td>
+        <td>43€</td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" name="newUser" id="newUser">Neuer Benutzer</button>
+  <div>
+    <li>
+      <a href="#/neueFahrt">Test</a>
+    </li>
+  </div>
+
+
+  <!--
+
+
+ergänzung ab hier
+
+
+
+ -->
+
+
+  <main>
+    <ul>
+      <!--  anfnag eines Notitzzettels -->
+      <li>
+        <p>
+          HANNES
+        </p>
+        <p>Schaetzle</p>
+        <p>
+          <label>40$</label>
+        </p>
+        <a onclick="removeEl(this)" , class="delete" >Delete Konto</a>
+      </li>
+
+      <!-- ende -->
+    </ul>
+  </main>
+
+</body>
+
+</html>

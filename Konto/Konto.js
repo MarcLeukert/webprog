@@ -14,7 +14,6 @@ class neuesKonto {
   }
 }
 
-
 window.addEventListener("load", () => {
   let newButton = document.getElementById("createKonto");
   let vorname = document.getElementById("vorname");

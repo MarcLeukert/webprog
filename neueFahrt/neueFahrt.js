@@ -18,6 +18,7 @@ async show(matches){
 
 }
 window.addEventListener("load", () =>{
+  createSelectObjects();
 let selectFahrer = document.getElementById("selectFahrer");
 let fahrerInput = null;
 let selectMitfahrer = document.getElementById("selectMitfahrer");
@@ -36,6 +37,8 @@ let fahrtID = 100;
 erstellenButton.addEventListener("click", () => {
 
     console.log("Funkt");
+    fahrerID = 100; // kommt eigentlich aus objekt aus dem selectFahrer
+    mitfahrerIDs = [200,300]; // kommt eigentlich aus objekt aus dem selectFahrer
     inputDistanz = inputDistanz.value;
     inputVon = inputVon.value;
     inputNach = inputNach.value;
@@ -45,7 +48,7 @@ erstellenButton.addEventListener("click", () => {
 
     //objekt fahrt erstellen
 
-    let dieseFahrt = new Fahrt(fahrtID, fahrerID, mitfahrerID, inputVon, inputNach, inputDistanz, inputVerbrauch, inputDatum, inputNotiz);
+    let dieseFahrt = new Fahrt(fahrtID, fahrerID, mitfahrerIDs, inputVon, inputNach, inputDistanz, inputVerbrauch, inputDatum, inputNotiz);
     fahrtID = fahrtID +1;
     if(dataArray[0]==null){
       dataArray[0]= 0;
@@ -78,6 +81,10 @@ hinzuBut.addEventListener("click", function(){
 });
 
 });
+
+function createSelectObjects(){
+
+}
 
 function mitfahrerHinzufuegen(){
   let selectDivBox = document.getElementById("divWeiteresSelect");

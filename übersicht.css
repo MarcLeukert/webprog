@@ -6,12 +6,33 @@ html, body {
   margin-left: 0;
 }
 
+body{
+  background-image: url(https://wasliestdu.de/dateien/styles/680x380/public/artikel/die-leere-nach-einem-guten-buch.jpg?itok=icsvyvoM);
+background-repeat:  no-repeat;
+background-position: center 0px;
+background-size: 100%;
+}
+
+
 .header {
-  background: linear-gradient(to bottom, blue, #e6e6ff);
+  background: none;
+  /*  linear-gradient(to bottom, blue, #e6e6ff) */
   width: 100%;
   height: 50px;
   margin: 0 auto;
   font-size: 30px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+#trips{
+  color: #000;
+}
+
+.labeluser{
+  color: #000;
+  font-size: 12pt;
+  width: 100%
 }
 
 
@@ -78,11 +99,11 @@ main {
 }
 
 /* Liste der Notizen */
-main > ul {
+main > #content > ul {
     list-style: none;
     padding: 0;
 }
-main > ul > li {
+main > #content > ul > li {
     display: inline-block;
     vertical-align: top;
     margin-right: 1em;
@@ -94,19 +115,23 @@ main > ul > li {
 
     min-width: 10em;
     min-height: 10em;
-    max-width: 10em;
-    max-height: 10em;
+    max-width: 20em;
+    max-height: 20em;
     position: relative;
     padding-bottom: 2.5em;
     border-radius: 10px;
 }
 
 
-main > ul > li > p {
+main > #content > ul > li > p {
     margin: 0;
 }
 
-main > ul > li > .delete {
+main > #content > ul > li > p >label {
+    margin: 0;
+}
+
+main> #content  > ul > li > .details {
     position: absolute;
     right: 1em;
     bottom: 1em;
@@ -117,6 +142,6 @@ main > ul > li > .delete {
     cursor: pointer;
 }
 
-main > ul > li > .delete:hover {
+main > #content > ul > li > .details:hover {
     color: rgb(0, 20, 25) !important;
 }

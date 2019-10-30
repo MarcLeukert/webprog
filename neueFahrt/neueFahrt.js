@@ -12,10 +12,11 @@ class neueFahrt {
     if (html.ok) {
       htmlContent = await html.text();
     }
-    this._app.setPageContent(htmlContent);
+    let domNodes = document.createRange().createContextualFragment(htmlContent)
+    this._app.setPageContent(domNodes);
+
+    //this._app.setPageContent(htmlObject);
   }
-
-
 }
 window.addEventListener("load", () => {
   let selectFahrer = document.getElementById("selectFahrer");

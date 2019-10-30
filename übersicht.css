@@ -35,6 +35,8 @@ background-size: 100%;
   width: 100%
 }
 
+
+
 button {
   background: none;
   color: #000;
@@ -97,11 +99,11 @@ main {
 }
 
 /* Liste der Notizen */
-main > ul {
+main > #content > ul {
     list-style: none;
     padding: 0;
 }
-main > ul > li {
+main > #content > ul > li {
     display: inline-block;
     vertical-align: top;
     margin-right: 1em;
@@ -121,15 +123,15 @@ main > ul > li {
 }
 
 
-main > ul > li > p {
+main > #content > ul > li > p {
     margin: 0;
 }
 
-main > ul > li > p >label {
+main > #content > ul > li > p >label {
     margin: 0;
 }
 
-main > ul > li > .details {
+main> #content  > ul > li > .details {
     position: absolute;
     right: 1em;
     bottom: 1em;
@@ -140,6 +142,6 @@ main > ul > li > .details {
     cursor: pointer;
 }
 
-main > ul > li > .details:hover {
+main > #content > ul > li > .details:hover {
     color: rgb(0, 20, 25) !important;
 }

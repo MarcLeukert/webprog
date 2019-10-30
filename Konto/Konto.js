@@ -16,13 +16,14 @@ class neuesKonto {
 
 window.addEventListener("load", () => {
   let userID = 0;
-  let newButton = document.getElementById("newTrip");
+  User.allInstances = [];
+  let newButton = document.getElementById("createKonto");
   let vorname = document.getElementById("vorname");
   let nachname = document.getElementById("nachname");
 
   newButton.addEventListener("click", () => {
     let user = new User(userID, vorname.value, nachname.value);
     userID++;
-
+    console.log("klappt");
   });
 });

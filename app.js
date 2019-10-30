@@ -47,9 +47,15 @@ window.addEventListener("load", () => {
     let liElement = document.createElement("li");
     memoList.appendChild(liElement);
 
-    let memoTextElement = document.createElement("p");
-    memoTextElement.textContent = text;
-    liElement.appendChild(memoTextElement);
+    text = "Name nachname";
+    let nameElement = document.createElement("p");
+    nameElement.textContent = text;
+    liElement.appendChild(nameElement);
+
+    forderungen = "Forderungen: 40Bugs";
+    let forderungElement = document.createElement("label");
+    nameElement.textContent = forderungen;
+    liElement.appendChild(forderungElement);
 
     let deleteElement = document.createElement("a");
     deleteElement.textContent = "Begleichen";

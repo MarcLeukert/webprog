@@ -21,19 +21,28 @@ let mitfahrerInput = null;
 let inputDistanz = document.getElementById("inputDistanz");
 let inputVon = document.getElementById("inputVon");
 let inputNach = document.getElementById("inputNach");
-let inputPreis = document.getElementById("inputPreis");
+let inputPreisProL = document.getElementById("inputPreis");
+let inputVerbauch = document.getElementById("inputVerbauch");
 let inputDatum = document.getElementById("inputDatum");
 let inputNotiz = document.getElementById("inputNotiz");
 let erstellenButton = document.getElementById("butErstellen");
 let dataArray = [6];
+let fahrtID = 100;
 
 erstellenButton.addEventListener("click", () => {
+
     console.log("Funkt");
     inputDistanz = inputDistanz.value;
     inputVon = inputVon.value;
     inputNach = inputNach.value;
     inputPreis = inputPreis.value;
     inputDatum = inputDatum.value;
+    inputVerbauch = inputVerbauch.value;
+
+    //objekt fahrt erstellen
+
+    let dieseFahrt = new Fahrt(fahrtID, fahrerID, mitfahrerID, inputVon, inputNach, inputDistanz, inputVerbrauch, inputDatum, inputNotiz);
+    fahrtID = fahrtID +1;
     if(dataArray[0]==null){
       dataArray[0]= 0;
     }

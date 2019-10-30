@@ -16,7 +16,6 @@ async show(matches){
   }
 
 
-  this._app.setPageContent();
 }
 window.addEventListener("load", () =>{
 let selectFahrer = document.getElementById("selectFahrer");

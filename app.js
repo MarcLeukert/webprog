@@ -47,30 +47,41 @@ window.addEventListener("load", () => {
     let liElement = document.createElement("li");
     memoList.appendChild(liElement);
 
-    text = "Name nachname";
+    text = "Name";
     let nameElement = document.createElement("p");
     nameElement.textContent = text;
     liElement.appendChild(nameElement);
 
+    text2 = "Nachname";
+    let nachnameElement = document.createElement("p");
+    nachnameElement.textContent = text2;
+    liElement.appendChild(nachnameElement);
+
     forderungen = "Forderungen: 40Bugs";
     let forderungElement = document.createElement("label");
-    nameElement.textContent = forderungen;
+    forderungElement.textContent = forderungen;
     liElement.appendChild(forderungElement);
 
-    let deleteElement = document.createElement("a");
-    deleteElement.textContent = "Begleichen";
-    deleteElement.classList.add("delete");
-    liElement.appendChild(deleteElement);
+    verb = "Verbindlcihkeiten: 10Bugs";
+    let verbElement = document.createElement("label");
+    verbElement.textContent = verb;
+    liElement.appendChild(verbElement);
 
-    deleteElement.addEventListener("click", () => {
+    let detailsElement = document.createElement("a");
+    detailsElement.textContent = "Details";
+    detailsElement.classList.add("details");
+    liElement.appendChild(detailsElement);
+
+    detailsElement.addEventListener("click", () => {
       liElement.parentNode.removeChild(liElement);
     });
   };
 
-  insertMemo("Klicke auf „Neuer Nutzer”, um einen neuen Nutzer anzulegen")
+  insertMemo("")
 
   // Event Handler
   newButton.addEventListener("click", () => {
     // hier muss der button wenn auf erstelle neures Konto
+    insertMemo("");
   });
 });

@@ -84,8 +84,8 @@ window.addEventListener("load", () => {
 
 function createSelectObjects() {    //um selects dynamisch zu füllen
 
-  fahrerSelect = document.getElementById("selectFahrer");
-  mitfahrerSelect = document.getElementById("selectMitfahrer");
+  let fahrerSelect = document.getElementById("selectFahrer");
+  let mitfahrerSelect = document.getElementById("selectMitfahrer");
   //console.log(User.allInstances);
   let instances = ["Whaat","Till","Stinkt"];
 

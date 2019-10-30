@@ -12,12 +12,10 @@
   <script type="text/javascript">
     let pages = [{
         url: "/neuesKonto",
-        resource: "/Konto/neuesKonto.html",
         klasse: neuesKonto
       },
       {
         url: "/neueFahrt",
-        resource: "/neueFahrt/neueFahrt.html",
         klasse: neueFahrt
       }
     ];
@@ -31,7 +29,7 @@
 <body>
   <header class="header">
     <div align="center">Fahrtenbuch</div>
-    <div class="content"> </div>
+    <div id="content"> </div>
   </header>
   <a type="button" name="newTrip" href="#/neueFahrt" id="newTrip">Neue Fahrt</a>
   <table id="fahrtenTable">

@@ -1,13 +1,14 @@
 class User {
 
+
+
   constructor(userID, vorname, nachname) {
     this.userID = userID;
     this.vorname = vorname;
     this.nachname = nachname;
 
-    let buchungsArray = [];
-    User.allInstances = [];
     User.allInstances.push(this);
+    let buchungsArray = [];
   }
 
   buchungen() {

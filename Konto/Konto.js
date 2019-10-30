@@ -16,7 +16,7 @@ class neuesKonto {
 
 window.addEventListener("load", () => {
   let userID = 0;
-  let newButton = document.getElementById("createKonto");
+  let newButton = document.getElementById("newTrip");
   let vorname = document.getElementById("vorname");
   let nachname = document.getElementById("nachname");
 

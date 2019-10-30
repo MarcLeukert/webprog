@@ -2,7 +2,9 @@ class neueFahrt {
   constructor(app) {
     this._app = app;
   }
-async show(){
+async show(matches){
+
+  this._recordId = matches[1];
     console.log("Neue Fahrt klappt");
     let html = await fetch("neueFahrt/neueFahrt.html");
     let htmlContent ="";
@@ -12,6 +14,8 @@ async show(){
     }
     this._app.setPageContent(htmlContent);
   }
+
+
 }
 window.addEventListener("load", () =>{
 let selectFahrer = document.getElementById("selectFahrer");

@@ -1,19 +1,26 @@
 class User {
 
-  constructor(userID,vorname, nachname) {
+  constructor(userID, vorname, nachname) {
     this.userID = userID;
     this.vorname = vorname;
     this.nachname = nachname;
 
     let buchungsArray = [];
+    User.allInstances = [];
+    User.allInstances.push(this);
   }
 
-  buchungen(){
+  buchungen() {
     let sum = 0;
-    for(i = 0; i < buchungsArray.length; i++){
+    let kontoArray = [];
+    for (i = 0; i < buchungsArray.length; i++) {
       if (userID == buchungsArray[i].glaeubigerID) {
         sum += buchungsArray[i].summe;
-      }else if (userID == buchungsArray.schuldnerID) {
+        kontoArray.push({
+          name: buchungsArray[i].name,
+          summe: buchungsArray[i].summe
+        });
+      } else if (userID == buchungsArray.schuldnerID) {
         sum -= buchungsArray[i];
       }
     }

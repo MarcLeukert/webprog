@@ -2,18 +2,21 @@ class neuesKonto {
   constructor(app) {
     this._app = app;
   }
-  async show() {
-    console.log("Neues Konto klappt");
+  async show(matches) {
+
+    this._recordId = matches[1];
+    console.log("Neue Fahrt klappt");
     let html = await fetch("Konto/neuesKonto.html");
     let htmlContent = "";
 
     if (html.ok) {
       htmlContent = await html.text();
     }
-    this._app.setPageContent(htmlContent);
-  }
-}
-  window.addEventListener("load", () => {
+    let domNodes = document.createRange().createContextualFragment(htmlContent)
+    this._app.setPageContent(domNodes);
+
+    //this._app.setPageContent(htmlObject);
+
     let userID = 0;
     User.allInstances = [];
     let newButton = document.getElementById("createKonto");
@@ -25,4 +28,5 @@ class neuesKonto {
       userID++;
       console.log("klappt");
     });
-  });
+  }
+}

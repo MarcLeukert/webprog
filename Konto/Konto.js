@@ -5,7 +5,7 @@ class neuesKonto {
   async show(matches) {
 
     this._recordId = matches[1];
-    console.log("Neue Fahrt klappt");
+    console.log("Neues Konto klappt");
     let html = await fetch("Konto/neuesKonto.html");
     let htmlContent = "";
 
@@ -17,8 +17,8 @@ class neuesKonto {
 
     //this._app.setPageContent(htmlObject);
 
+    console.log("Konto öffnet sich");
     let userID = 0;
-    User.allInstances = [];
     let newButton = document.getElementById("createKonto");
     let vorname = document.getElementById("vorname");
     let nachname = document.getElementById("nachname");

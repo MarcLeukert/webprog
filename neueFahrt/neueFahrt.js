@@ -16,77 +16,73 @@ class neueFahrt {
     this._app.setPageContent(domNodes);
 
     //this._app.setPageContent(htmlObject);
+    console.log("load methode öffent");
+    let fahrerInput = null;
+    let mitfahrerInput = null;
+    let inputDistanz = document.getElementById("inputDistanz");
+    let inputVon = document.getElementById("inputVon");
+    let inputNach = document.getElementById("inputNach");
+    let inputPreis = document.getElementById("inputPreis");
+    let inputVerbrauch = document.getElementById("inputVerbrauch");
+    let inputDatum = document.getElementById("inputDatum");
+    let inputNotiz = document.getElementById("inputNotiz");
+    let erstellenButton = document.getElementById("butErstellen");
+    let dataArray = [6];
+    let fahrtID = 100;
+
+    //für create SelectObjects
+    let fahrerSelect = document.getElementById("selectFahrer");
+    let mitfahrerSelect = document.getElementById("selectMitfahrer");
+
+    createSelectObjects(fahrerSelect, mitfahrerSelect);
+
+    erstellenButton.addEventListener("click", () => {
+
+      console.log("Funkt");
+      let fahrerID = 100; // kommt eigentlich aus objekt aus dem selectFahrer
+      let mitfahrerIDs = [200, 300]; // kommt eigentlich aus objekt aus dem selectFahrer
+      inputDistanz = inputDistanz.value;
+      inputVon = inputVon.value;
+      inputNach = inputNach.value;
+      inputPreis = inputPreis.value;
+      inputDatum = inputDatum.value;
+      inputVerbrauch = inputVerbrauch.value;
+
+      //objekt fahrt erstellen
+
+      let dieseFahrt = new Fahrt(fahrtID, fahrerID, mitfahrerIDs, inputVon, inputNach,inputPreis, inputDistanz, inputVerbrauch, inputDatum, inputNotiz);
+      //console.log(dieseFahrt.von);
+      fahrtID = fahrtID + 1;
+      if (dataArray[0] == null) {
+        dataArray[0] = 0;
+      } else if (dataArray[1] == null) {
+        dataArray[1] = 0;
+      }
+      dataArray[2] = inputDistanz, dataArray[3] = inputVon, dataArray[4] = inputNach, dataArray[5] = inputPreis, dataArray[6] = inputDatum;
+      inputNotiz.innerHTML = dataArray;
+    });
+
+    selectFahrer.addEventListener("change", () => {
+      dataArray[0] = selectFahrer.value;
+      console.log(selectFahrer.value);
+    });
+
+    selectMitfahrer.addEventListener("change", () => {
+      if (dataArray[0] == null) {
+        dataArray[i] = 0;
+      }
+      dataArray[1] = selectMitfahrer.value;
+      console.log(selectMitfahrer.value);
+    });
+
+    let hinzuBut = document.getElementById("buttonHinzu");
+
+    hinzuBut.addEventListener("click", function() {
+      mitfahrerHinzufuegen();
+    });
+
   }
 }
-window.addEventListener("load", () => {
-  let selectFahrer = document.getElementById("selectFahrer");
-  let fahrerInput = null;
-  let selectMitfahrer = document.getElementById("selectMitfahrer");
-  let mitfahrerInput = null;
-  let inputDistanz = document.getElementById("inputDistanz");
-  let inputVon = document.getElementById("inputVon");
-  let inputNach = document.getElementById("inputNach");
-  let inputPreis = document.getElementById("inputPreis");
-  let inputVerbrauch = document.getElementById("inputVerbrauch");
-  let inputDatum = document.getElementById("inputDatum");
-  let inputNotiz = document.getElementById("inputNotiz");
-  let erstellenButton = document.getElementById("butErstellen");
-  let dataArray = [6];
-  let fahrtID = 100;
-
-  //für create SelectObjects
-  let fahrerSelect = document.getElementById("selectFahrer");
-  let mitfahrerSelect = document.getElementById("selectMitfahrer");
-
-  createSelectObjects(fahrerSelect, mitfahrerSelect);
-
-  erstellenButton.addEventListener("click", () => {
-
-    console.log("Funkt");
-    let fahrerID = 100; // kommt eigentlich aus objekt aus dem selectFahrer
-    let mitfahrerIDs = [200, 300]; // kommt eigentlich aus objekt aus dem selectFahrer
-    inputDistanz = inputDistanz.value;
-    inputVon = inputVon.value;
-    inputNach = inputNach.value;
-    inputPreis = inputPreis.value;
-    inputDatum = inputDatum.value;
-    inputVerbrauch = inputVerbrauch.value;
-
-    //objekt fahrt erstellen
-
-    let dieseFahrt = new Fahrt(fahrtID, fahrerID, mitfahrerIDs, inputVon, inputNach,inputPreis, inputDistanz, inputVerbrauch, inputDatum, inputNotiz);
-    //console.log(dieseFahrt.von);
-    fahrtID = fahrtID + 1;
-    if (dataArray[0] == null) {
-      dataArray[0] = 0;
-    } else if (dataArray[1] == null) {
-      dataArray[1] = 0;
-    }
-    dataArray[2] = inputDistanz, dataArray[3] = inputVon, dataArray[4] = inputNach, dataArray[5] = inputPreis, dataArray[6] = inputDatum;
-    inputNotiz.innerHTML = dataArray;
-  });
-
-  selectFahrer.addEventListener("change", () => {
-    dataArray[0] = selectFahrer.value;
-    console.log(selectFahrer.value);
-  });
-
-  selectMitfahrer.addEventListener("change", () => {
-    if (dataArray[0] == null) {
-      dataArray[i] = 0;
-    }
-    dataArray[1] = selectMitfahrer.value;
-    console.log(selectMitfahrer.value);
-  });
-
-  let hinzuBut = document.getElementById("buttonHinzu");
-
-  hinzuBut.addEventListener("click", function() {
-    console.log("Till stinkt");
-    mitfahrerHinzufuegen();
-  });
-
-});
 
 function createSelectObjects(fS, mS) {    //um selects dynamisch zu füllen
   //console.log(User.allInstances);

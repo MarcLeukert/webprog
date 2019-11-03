@@ -37,3 +37,6 @@ class User {
   }
 
 }
+
+test1 = new User(23,"Test1","Test1.1");
+test2 = new User(23,"Test2","Test2.1");

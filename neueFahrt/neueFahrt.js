@@ -26,30 +26,36 @@ window.addEventListener("load", () => {
   let inputDistanz = document.getElementById("inputDistanz");
   let inputVon = document.getElementById("inputVon");
   let inputNach = document.getElementById("inputNach");
-  let inputPreisProL = document.getElementById("inputPreis");
-  let inputVerbauch = document.getElementById("inputVerbauch");
+  let inputPreis = document.getElementById("inputPreis");
+  let inputVerbrauch = document.getElementById("inputVerbrauch");
   let inputDatum = document.getElementById("inputDatum");
   let inputNotiz = document.getElementById("inputNotiz");
   let erstellenButton = document.getElementById("butErstellen");
-  createSelectObjects();
   let dataArray = [6];
   let fahrtID = 100;
+
+  //für create SelectObjects
+  let fahrerSelect = document.getElementById("selectFahrer");
+  let mitfahrerSelect = document.getElementById("selectMitfahrer");
+
+  createSelectObjects(fahrerSelect, mitfahrerSelect);
 
   erstellenButton.addEventListener("click", () => {
 
     console.log("Funkt");
-    fahrerID = 100; // kommt eigentlich aus objekt aus dem selectFahrer
-    mitfahrerIDs = [200, 300]; // kommt eigentlich aus objekt aus dem selectFahrer
+    let fahrerID = 100; // kommt eigentlich aus objekt aus dem selectFahrer
+    let mitfahrerIDs = [200, 300]; // kommt eigentlich aus objekt aus dem selectFahrer
     inputDistanz = inputDistanz.value;
     inputVon = inputVon.value;
     inputNach = inputNach.value;
     inputPreis = inputPreis.value;
     inputDatum = inputDatum.value;
-    inputVerbauch = inputVerbauch.value;
+    inputVerbrauch = inputVerbrauch.value;
 
     //objekt fahrt erstellen
 
-    let dieseFahrt = new Fahrt(fahrtID, fahrerID, mitfahrerIDs, inputVon, inputNach, inputDistanz, inputVerbrauch, inputDatum, inputNotiz);
+    let dieseFahrt = new Fahrt(fahrtID, fahrerID, mitfahrerIDs, inputVon, inputNach,inputPreis, inputDistanz, inputVerbrauch, inputDatum, inputNotiz);
+    //console.log(dieseFahrt.von);
     fahrtID = fahrtID + 1;
     if (dataArray[0] == null) {
       dataArray[0] = 0;
@@ -82,19 +88,24 @@ window.addEventListener("load", () => {
 
 });
 
-function createSelectObjects() {    //um selects dynamisch zu füllen
-
-  let fahrerSelect = document.getElementById("selectFahrer");
-  let mitfahrerSelect = document.getElementById("selectMitfahrer");
+function createSelectObjects(fS, mS) {    //um selects dynamisch zu füllen
   //console.log(User.allInstances);
-  let instances = ["Whaat","Till","Stinkt"];
+  let fahrerSelect = fS;
+  let mitfahrerSelect = mS;
+  let tim = new User(2, "Tim", "Wieb");
+  let manu = new User(3, "Manuel", "Koe");
+  let till = new User(4,"Till","Schirr");
+  //User.allInstances.push(tim);
+  let instances = User.allInstances;
+
+  //let instances = ["Whaat","Till","Stinkt"];
 
   for (i = 0; i < instances.length; i++) {
-    let selectOptionF = createOption(instances[i]);
-    let selectOptionM = createOption(instances[i]);
-    fahrerSelect.setAttribute("class", "classSelect");
+    let selectOptionF = createOption(instances[i].vorname);
+    let selectOptionM = createOption(instances[i].vorname);
+    selectOptionF.setAttribute("class", "classSelect");
     fahrerSelect.appendChild(selectOptionF);
-    mitfahrerSelect.setAttribute("class", "classSelect");
+    selectOptionM.setAttribute("class", "classSelect");
     mitfahrerSelect.appendChild(selectOptionM);
   }
 
@@ -106,11 +117,11 @@ function mitfahrerHinzufuegen() {
   let neuesSpan = document.createElement("span");
   let neuesSelect = document.createElement("select");
   let data = document.createTextNode("");
-  let instances = ["Whaat", "Till", "Stinkt"];
+  let instances = User.allInstances;
   neuesSpan.setAttribute("class", "spanAttribut");
   let neueOptions = [];
   for(i = 0 ; i<instances.length; i++){
-     neueOptions[i] =  createOption(instances[i]);
+     neueOptions[i] =  createOption(instances[i].vorname);
      neueOptions[i].setAttribute("class", "classSelect");
      neuesSelect.appendChild(neueOptions[i]);
   }

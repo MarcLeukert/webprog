@@ -1,15 +1,23 @@
 class User {
-
-
-
   constructor(userID, vorname, nachname) {
     this.userID = userID;
     this.vorname = vorname;
     this.nachname = nachname;
 
+    if(User.allInstances == 'undefined' || User.allInstances == null){
+      User.allInstances = [];
+    }
+
     User.allInstances.push(this);
     let buchungsArray = [];
   }
+
+  //this.nullInstances = 0;
+
+/*  this.getInstances(){
+
+    return User.allInstances;
+  } */
 
   buchungen() {
     let sum = 0;

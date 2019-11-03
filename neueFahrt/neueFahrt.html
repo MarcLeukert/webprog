@@ -4,9 +4,10 @@
 <head>
   <meta charset="utf-8">
   <title>Neue Fahrt</title>
-  <link rel="stylesheet" href="neueFahrt.css">
-  <script src="neueFahrt.js"></script>
+  <link rel="stylesheet" href="../neueFahrt/neueFahrt.css">
+  <script src="../neueFahrt/neueFahrt.js"></script>
   <script src="../Konto/user.js"></script>
+  <script src="../KlasseFahrt.js"></script>
 </head>
 
 <body class="body">
@@ -15,13 +16,13 @@
   </div>
   <div class="divGanzerBlock">
     <div class="divGanzerBlockInnen">
-      <div>
+      <div id="divFahrer">
         <span class="spanAttribut">Fahrer</span>
         <select class="classSelect" id="selectFahrer">
-          <option value="Manuel">Manuel</option>
-
-
-        <!--  <option value="Hannes">Hannes</option>
+          <!--
+          <option value="Manuel">lel</option>
+          <option value="Manuel">df</option>
+          <option value="Hannes">Hannes</option>
           <option value="Liam">Liam</option>
           <option value="Marc">Marc</option> -->
         </select>
@@ -29,22 +30,23 @@
       <div id="divMitfahrer">
         <span class="spanAttribut">Mitfahrer</span>
         <select class="classSelect" id="selectMitfahrer">
+<!--
           <option value="Manuel">Manuel</option>
-
-          <!-- <option value="Hannes">Hannes</option>
+          <option value="Hannes">Hannes</option>
           <option value="Liam">Liam</option>
           <option value="Marc">Marc</option>
           <option value="Till">Till</option>
           <option value="Tim">Tim</option> -->
         </select>
       </div>
+      <div id="divWeiteresSelect">
+        <!-- to be filled by JS !-->
+      </div>
       <div>
         <span class="spanAttribut"></span>
         <button id="buttonHinzu" class="butHinzu" ype="button" name="button">Mitfahrer hinzufügen</button>
       </div>
-      <div id="divWeiteresSelect">
-        <!-- to be filled by JS !-->
-      </div>
+
       <div>
         <span class="spanAttribut">Distanz in km</span>
         <input class="spanInput" id="inputDistanz" type="number" name="" value="" placeholder="45">

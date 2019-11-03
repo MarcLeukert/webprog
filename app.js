@@ -77,7 +77,7 @@ window.addEventListener("load", () => {
     });
   };
 
-  insertMemo("")
+  //insertMemo("")
 
   // Event Handler
   newButton.addEventListener("click", () => {

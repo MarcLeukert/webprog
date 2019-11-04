@@ -3,6 +3,8 @@ class User {
     this.userID = userID;
     this.vorname = vorname;
     this.nachname = nachname;
+    this.amountForderungen = [];
+    this.amountVerbindlichkeiten = [];
 
     if(User.allInstances == 'undefined' || User.allInstances == null){
       User.allInstances = [];
@@ -18,6 +20,23 @@ class User {
 
     return User.allInstances;
   } */
+  addVerbindlichkeiten(verbObj){
+    this.amountVerbindlichkeiten[anzahlVerbindlichkeiten] = verbObj;
+    anzahlVerbindlichkeiten++;;
+  }
+
+  addVerbindlichkeiten(fordObj){
+    this.amountForderungen[anzahlForderungen] = fordObj;
+    anzahlForderungen++;
+  }
+
+  getVerbindlichkeiten(){
+    return this.amountVerbindlichkeiten;
+  }
+
+  getForderungen(){
+    return this.amountForderungen;
+  }
 
   getUserID(){
     return this.userID;
@@ -41,6 +60,7 @@ class User {
   }
 
 }
-
+anzahlVerbindlichkeiten = 0;
+anzahlForderungen = 0;
 test1 = new User(23,"Test1","Test1.1");
 test2 = new User(23,"Test2","Test2.1");

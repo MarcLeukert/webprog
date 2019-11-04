@@ -7,14 +7,21 @@ class Fahrt {
     this.von = von;
     this.nach = nach;
     this.dist = dist;
-    this.preis = preis;
-    this.verb = datum;
+    this.preisProL = preis;
+    this.verb = verb;
+    this.datum = datum;
     this.notiz = notiz;
+    this.preis = this.kostenBerechen();
+
+    this.forderung = new Forderung()
+    // this.forderung = new Forderung     wie solls weiter gehen
+
   }
 
   kostenBerechen() {
+    let kostenProPerson = 0;
     let gesamtKosten = this.verb * this.dist;
-    this.kostenProPerson = this.gesamtKosten / mitfahrerIDs.length;
+    kostenProPerson = this.gesamtKosten / this.mitfahrerIDs.length;
 
     return kostenProPerson;
   }

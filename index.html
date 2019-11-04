@@ -7,11 +7,25 @@
   <script src="./app.js" charset="utf-8"> </script>
   <!-- <script src="./Konto/user.js"></script> -->
   <script src="./Konto/Konto.js"> </script>
-  <script src="./neueFahrt/neueFahrtTest.js"></script>
+  <script src="./Konto/user.js"> </script>
+  <script src="./neueFahrt/neueFahrt.js"></script>
+  <script src="./anfangsSeite.js"></script>
+  <script src="./KlasseFahrt.js"></script>
+
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="übersicht.css">
+  <link rel="stylesheet" href="../neueFahrt/neueFahrt.css">
   <script type="text/javascript">
-    let pages = [{
+    let pages = [
+      {
+        url: "",
+        klasse: anfangsSeite
+      },
+      {
+        url: "/",
+        klasse: anfangsSeite
+      },
+      {
         url: "/neuesKonto",
         klasse: neuesKonto
       },
@@ -40,7 +54,7 @@
   <!-- Anfang der Erstellung neuer Konten -->
   <main>
     <div id="content">
-      <a type="button" name="newTrip" href="#/neueFahrt" id="newTrip">Neue Fahrt</a>
+<!--      <a type="button" name="newTrip" href="#/neueFahrt" id="newTrip">Neue Fahrt</a>
       <table id="fahrtenTable">
         <caption>Latest 5 Trips</caption>
         <thead>
@@ -100,9 +114,9 @@
           </tr>
         </tbody>
       </table> -->
-      <ul>
+<!--      <ul>
         <!--  Anfnag eines Notitzzettels -->
-        <li>
+<!--        <li>
           <p>
             HANNES
           </p>
@@ -114,7 +128,7 @@
         </li>
 
         <!-- ende -->
-      </ul>
+<!--      </ul> -->
     </div>
   </main>
 

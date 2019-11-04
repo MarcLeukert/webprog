@@ -4,7 +4,7 @@ class neuesKonto {
   }
   async show(matches) {
 
-    this._recordId = matches[1];
+    //this._recordId = matches[1];
     console.log("Neues Konto klappt");
     let html = await fetch("Konto/neuesKonto.html");
     let htmlContent = "";

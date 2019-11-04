@@ -1,6 +1,7 @@
 class App {
   constructor(pages) {
     this._pages = pages;
+    this._handleRoute();
   }
   run() {
     window.addEventListener("hashchange", () => {
@@ -13,12 +14,18 @@ class App {
     if (pageURL.length === 0) {
       pageURL = "/";
     }
-    let matches = null;
 
-    let page = this._pages.find(p => matches = pageURL.match(p.url));
+    let page;
+
+    let pageFound = this._pages.some(function(item,index){
+      if(item.url == pageURL){
+        page = item;
+        return true;
+      }
+    });
 
     this.currentPageObj = new page.klasse(this);
-    this.currentPageObj.show(matches);
+    this.currentPageObj.show();
   }
 
   setPageContent(element) {
@@ -37,7 +44,7 @@ class App {
 
 
 }
-
+/*
 
 window.addEventListener("load", () => {
   let newButton = document.getElementById("newUser")
@@ -85,3 +92,4 @@ window.addEventListener("load", () => {
     insertMemo("");
   });
 });
+*/

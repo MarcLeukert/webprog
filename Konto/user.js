@@ -19,6 +19,10 @@ class User {
     return User.allInstances;
   } */
 
+  getUserID(){
+    return this.userID;
+  }
+
   buchungen() {
     let sum = 0;
     let kontoArray = [];

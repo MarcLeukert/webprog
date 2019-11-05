@@ -71,6 +71,7 @@ class Fahrt {
     for (j; j < instances.length; j++) {
       if (instances[j].userID == this.fahrerID)
         instances[j].amountForderungen = this.forderungen;
+        instances[j].updateSumForderungen();
     }
   }
   verbindlichkeitHinzufuegen() {
@@ -83,6 +84,7 @@ class Fahrt {
         if (instances[j].userID == this.mitfahrerIDs[i]) {
           help = this.verbindlichkeiten[i];
           instances[j].amountVerbindlichkeiten.push(this.verbindlichkeiten[i]);
+          instances[j].updateSumVerbindlichkeiten();
         }
       }
     }

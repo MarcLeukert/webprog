@@ -35,6 +35,7 @@ class neueFahrt {
     //für create SelectObjects
     let fahrerSelect = document.getElementById("selectFahrer");
     let mitfahrerSelect = document.getElementById("selectMitfahrer");
+    let anzahlMitfahrerSelects = 1;
 
 
 
@@ -48,8 +49,9 @@ class neueFahrt {
       let mitfahrerIDs = []
       //mitfahrerIDs.push(mitfahrerSelect.value);
       for(i=0; i<anzahlMitfahrerSelects;i++){
-        //mitfahrerIDs[i] = document.getElementById("newDymSelect"+anzahlMitfahrerSelects).value;
-        mitfahrerIDs[i] = i+10;
+        let zwi =document.getElementById("newDymSelect"+anzahlMitfahrerSelects);
+        mitfahrerIDs[i] = zwi.value;
+        //mitfahrerIDs[i] = i+10;
 
       }
       inputDistanz = inputDistanz.value;
@@ -93,7 +95,8 @@ class neueFahrt {
     let hinzuBut = document.getElementById("buttonHinzu");
 
     hinzuBut.addEventListener("click", function() {
-      mitfahrerHinzufuegen();
+      mitfahrerHinzufuegen(anzahlMitfahrerSelects);
+      anzahlMitfahrerSelects++;
     });
 
     /* backButton.addEventListener("click", () => {
@@ -102,15 +105,14 @@ class neueFahrt {
   }
 }
 
-let anzahlMitfahrerSelects = 0;
-
 function createSelectObjects(fS, mS) {    //um selects dynamisch zu füllen
   //console.log(User.allInstances);
   let fahrerSelect = fS;
   let mitfahrerSelect = mS;
+  /* Mockdaten
   let tim = new User(2, "Tim", "Wieb");
   let manu = new User(3, "Manuel", "Koe");
-  let till = new User(4,"Till","Schirr");
+  let till = new User(4,"Till","Schirr"); */
   //User.allInstances.push(tim);
   let instances = User.allInstances;
 
@@ -127,8 +129,7 @@ function createSelectObjects(fS, mS) {    //um selects dynamisch zu füllen
 
 }
 
-function mitfahrerHinzufuegen() {
-  anzahlMitfahrerSelects++;
+function mitfahrerHinzufuegen(anzahlMitfahrerSelects) {
   let selectDivBox = document.getElementById("divWeiteresSelect");
   let neuesDiv = document.createElement("div");
   let neuesSpan = document.createElement("span");

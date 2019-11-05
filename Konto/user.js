@@ -83,3 +83,4 @@ anzahlVerbindlichkeiten = 0;
 anzahlForderungen = 0;
 test1 = new User("Test1","Test1.1");
 test2 = new User("Test2","Test2.1");
+test3 = new User("Test3","Test3.1");

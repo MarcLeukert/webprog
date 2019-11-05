@@ -1,5 +1,5 @@
 class Verbindlichkeit{
-  constructor(inhaberID, glaeubigerID, fahrtID, wert){
+  constructor(inhaberID, glaeubigerID,fahrtID,  wert){
     this.verbindlichkeitsID = this.create_UUID();
     this.fahrtID = fahrtID;
     this.glaeubigerID = glaeubigerID;

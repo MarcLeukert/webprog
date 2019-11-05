@@ -6,6 +6,7 @@ class Forderung{
     this._inhaberID = inhaberID;
     this._schuldnerID = schuldnerID;
     this.wert = wert;
+    
 
   }
 

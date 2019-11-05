@@ -5,13 +5,14 @@ class User {
     this.nachname = nachname;
     this.amountForderungen = [];
     this.amountVerbindlichkeiten = [];
+    this.sumForderungen = this.updateSumForderungen();
+    this.sumVerbindlichkeiten = this.updateSumVerbindlichkeiten();
 
     if(User.allInstances == 'undefined' || User.allInstances == null){
       User.allInstances = [];
     }
 
     User.allInstances.push(this);
-    let buchungsArray = [];
   }
 
   //this.nullInstances = 0;
@@ -53,21 +54,28 @@ class User {
     return this.userID;
   }
 
-  buchungen() {
-    let sum = 0;
-    let kontoArray = [];
-    for (i = 0; i < buchungsArray.length; i++) {
-      if (userID == buchungsArray[i].glaeubigerID) {
-        sum += buchungsArray[i].summe;
-        kontoArray.push({
-          name: buchungsArray[i].name,
-          summe: buchungsArray[i].summe
-        });
-      } else if (userID == buchungsArray.schuldnerID) {
-        sum -= buchungsArray[i];
-      }
+  updateSumForderungen(){
+    var sum = 0;
+    if (this.amountForderungen.length === 0) {
+        this.sumForderungen = sum;
+    }else{
+        for (var i = 0; i < this.amountForderungen.length; i++) {
+            sum += this.amountForderungen[i].wert;
     }
-    return sum;
+     this.sumForderungen = sum;
+  }
+}
+
+  updateSumVerbindlichkeiten(){
+    var sum = 0;
+    if(this.amountVerbindlichkeiten.length === 0){
+       this.sumVerbindlichkeiten = sum;
+    }else{
+      for (var i = 0; i < this.amountVerbindlichkeiten.length; i++) {
+        sum += this.amountVerbindlichkeiten[i].wert;
+      }
+       this.sumVerbindlichkeiten = sum;
+    }
   }
 
 }

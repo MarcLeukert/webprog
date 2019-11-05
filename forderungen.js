@@ -1,11 +1,11 @@
 class Forderung{
 
-  constructor(forderungsID, inhaberID, schuldnerID, fahrtID, summe){
-    this.forderungID = forderungID;
+  constructor(forderungsID, inhaberID, schuldnerID, fahrtID, wert){
+    this.forderungID = forderungsID;
     this._fahrtID = fahrtID;
     this._inhaberID = inhaberID;
     this._schuldnerID = schuldnerID;
-    this._summe = summe;
+    this.wert = wert;
 
   }
 }

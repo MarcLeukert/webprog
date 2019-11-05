@@ -46,10 +46,9 @@ class neueFahrt {
       console.log(anzahlMitfahrerSelects);
       let fahrerID = fahrerSelect.value; // kommt eigentlich aus objekt aus dem selectFahrer
       let mitfahrerIDs = []
-      mitfahrerIDs.push(mitfahrerSelect.value);
+      //mitfahrerIDs.push(mitfahrerSelect.value);
       for(i=0; i<anzahlMitfahrerSelects;i++){
-        let val = document.getElementById("newDymSelect"+anzahlMitfahrerSelects);
-        mitfahrerIDs.push(val.value);
+        mitfahrerIDs[i] = document.getElementById("newDymSelect"+anzahlMitfahrerSelects).value;
       }
       inputDistanz = inputDistanz.value;
       inputVon = inputVon.value;

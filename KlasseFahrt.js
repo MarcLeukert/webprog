@@ -14,6 +14,7 @@ class Fahrt {
     this.preis = this.kostenBerechen();
 
     this.forderung = this.forderungErstellen();
+    this.verbindlichkeiten = this.verbindlichkeitErstellen();
     // this.forderung = new Forderung     wie solls weiter gehen
 
   }
@@ -27,24 +28,28 @@ class Fahrt {
   }
 
   forderungErstellen() {
+    let neueForderung = [];
     if (this.forderungsID == 'undefined' || this.forderungsID == null) {
       this.forderungsID = 1000;
     }
     for (i = 0; i < this.mitfahrerIDs.length; i++) {
 
-      this.neueForderung = new Forderung(this.forderungsID, this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.kostenProPerson);
+      neueForderung[i] = new Forderung(this.forderungsID, this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.preis);
       this.forderungsID = this.forderungsID + 1;
     }
+    return neueForderung;
   }
 
   verbindlichkeitErstellen() {
+    let neueVerbindlichkeit = [];
     if (this.verbindlichkeitsID == 'undefined' || this.verbindlichkeitsID == null) {
       this.verbindlichkeitsID = 2000;
     }
-    for (i = 0; i < mitfahrerIDs.length; i++) {
+    for (i = 0; i < this.mitfahrerIDs.length; i++) {
 
-      this.neueVerbindlichkeit = new Verbindlichkeit(this.verbindlichkeitsID, this.mitfahrerIDs[i], this.fahrerID, this.fahrtID, this.kostenProPerson);
+      neueVerbindlichkeit[i] = new Verbindlichkeit(this.verbindlichkeitsID, this.mitfahrerIDs[i], this.fahrerID, this.fahrtID, this.preis);
       this.verbindlichkeitsID = this.verbindlichkeitsID + 1;
     }
+    return neueVerbindlichkeit;
   }
 }

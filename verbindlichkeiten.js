@@ -1,9 +1,9 @@
 class Verbindlichkeit{
-  constructor(verbindlichkeitsID, inhaberId, gläubigerId, fahrtId, summe ){
-    this._verbindlichkeitsID = verbindlichkeitsID;
-    this._fahrtID = fahrtID;
+  constructor(verbindlichkeitsID, inhaberID, glaeubigerID, fahrtID, wert){
+    this.verbindlichkeitsID = verbindlichkeitsID;
+    this.fahrtID = fahrtID;
     this.glaeubigerID = glaeubigerID;
-    this._inhaberID = schuldnerID;
-    this._summe = summe;
+    this.inhaberID = inhaberID;
+    this.wert = wert;
   }
 }

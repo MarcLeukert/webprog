@@ -30,7 +30,7 @@ class neueFahrt {
     let erstellenButton = document.getElementById("butErstellen");
     let backButton = document.getElementById("butFahrtBack");
     let dataArray = [];
-    let fahrtID = 100;
+    let fahrtID;
 
     //für create SelectObjects
     let fahrerSelect = document.getElementById("selectFahrer");
@@ -42,6 +42,8 @@ class neueFahrt {
     createSelectObjects(fahrerSelect, mitfahrerSelect);
 
     erstellenButton.addEventListener("click", () => {
+
+      fahrtID = create_UUID();
 
       console.log("Funkt");
       console.log("Selects:" + anzahlMitfahrerSelects);
@@ -163,3 +165,13 @@ function createOption(obj) {
   option.text = obj.vorname;
   return option;
 }
+
+function create_UUID(){
+      var dt = new Date().getTime();
+      var uuid = 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+          var r = (dt + Math.random()*16)%16 | 0;
+          dt = Math.floor(dt/16);
+          return (c=='x' ? r :(r&0x3|0x8)).toString(16);
+      });
+      return uuid;
+  }

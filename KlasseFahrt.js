@@ -31,26 +31,26 @@ class Fahrt {
 
   forderungErstellen() {
     let neueForderung = [];
-    if (this.forderungsID == 'undefined' || this.forderungsID == null) {
+    /*if (this.forderungsID == 'undefined' || this.forderungsID == null) {
       this.forderungsID = 1000;
-    }
+    } */
     for (i = 0; i < this.mitfahrerIDs.length; i++) {
 
-      neueForderung[i] = new Forderung(this.forderungsID, this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.preis);
-      this.forderungsID = this.forderungsID + 1;
+      neueForderung[i] = new Forderung(this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.preis);
+      //this.forderungsID = this.forderungsID + 1;
     }
     return neueForderung;
   }
 
   verbindlichkeitErstellen() {
     let neueVerbindlichkeit = [];
-    if (this.verbindlichkeitsID == 'undefined' || this.verbindlichkeitsID == null) {
+  /*  if (this.verbindlichkeitsID == 'undefined' || this.verbindlichkeitsID == null) {
       this.verbindlichkeitsID = 2000;
-    }
+    }*/
     for (i = 0; i < this.mitfahrerIDs.length; i++) {
 
-      neueVerbindlichkeit[i] = new Verbindlichkeit(this.verbindlichkeitsID, this.mitfahrerIDs[i], this.fahrerID, this.fahrtID, this.preis);
-      this.verbindlichkeitsID = this.verbindlichkeitsID + 1;
+      neueVerbindlichkeit[i] = new Verbindlichkeit( this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.preis);
+      //this.verbindlichkeitsID = this.verbindlichkeitsID + 1;
     }
     return neueVerbindlichkeit;
   }
@@ -65,12 +65,14 @@ class Fahrt {
   }
   verbindlichkeitHinzufuegen() {
     let instances = User.allInstances;
-    let j = 0,
+    let j = 0, help,
       i = 0;
     for (j; j < instances.length; j++) {
+      i = 0;
       for (i; i < this.mitfahrerIDs.length;i++) {
         if (instances[j].userID == this.mitfahrerIDs[i]) {
-          instances[j].amountForderungen = this.forderungen;
+          help = this.verbindlichkeiten[i];
+          instances[j].amountVerbindlichkeiten = this.verbindlichkeiten[i];
         }
       }
     }

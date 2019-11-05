@@ -65,7 +65,6 @@ class anfangsSeite {
         liElement.parentNode.removeChild(liElement);
       });
     }
-if(Fahrt.allInstances == 'undefined'){
     var table = document.getElementById('table');
 
     // cycle through the array for each of the presidents
@@ -96,7 +95,7 @@ if(Fahrt.allInstances == 'undefined'){
       table.appendChild(row);
     }
   }
-}
+
 
 
 

@@ -58,10 +58,10 @@ class User {
   updateSumForderungen(){
     var sum = 0;
     if (this.amountForderungen.length === 0) {
-      this.sumForderungen = sum;
-        }else{
-    for (var i = 0; i < this.amountForderungen.length; i++) {
-      sum += this.amountForderungen[i].wert;
+        this.sumForderungen = sum;
+    }else{
+        for (var i = 0; i < this.amountForderungen.length; i++) {
+            sum += this.amountForderungen[i].wert;
     }
      this.sumForderungen = sum;
   }

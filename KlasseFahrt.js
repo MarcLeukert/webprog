@@ -50,7 +50,10 @@ class Fahrt {
     }*/
     for (i = 0; i < this.mitfahrerIDs.length; i++) {
 
-      neueVerbindlichkeit[i] = new Verbindlichkeit( this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.preis);
+      let array = [];
+      array = new Verbindlichkeit( this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.preis);
+
+      neueVerbindlichkeit[i] = array;
       //this.verbindlichkeitsID = this.verbindlichkeitsID + 1;
     }
     return neueVerbindlichkeit;
@@ -73,7 +76,7 @@ class Fahrt {
       for (i; i < this.mitfahrerIDs.length;i++) {
         if (instances[j].userID == this.mitfahrerIDs[i]) {
           help = this.verbindlichkeiten[i];
-          instances[j].amountVerbindlichkeiten = this.verbindlichkeiten[i];
+          instances[j].amountVerbindlichkeiten.push(this.verbindlichkeiten[i]);
         }
       }
     }

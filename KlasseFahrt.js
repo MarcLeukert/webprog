@@ -68,7 +68,7 @@ class Fahrt {
     let j = 0,
       i = 0;
     for (j; j < instances.length; j++) {
-      for (i; i < mitfahrerIDs.length) {
+      for (i; i < mitfahrerIDs.length;i++) {
         if (instances[j].userID == this.mitfahrerIDs[i]) {
           instances[j].amountForderungen = this.forderungen;
         }

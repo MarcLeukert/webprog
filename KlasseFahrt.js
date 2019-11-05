@@ -13,7 +13,7 @@ class Fahrt {
     this.notiz = notiz;
     this.preis = this.kostenBerechen();
 
-    this.forderung = new Forderung()
+    this.forderung = this.forderungErstellen();
     // this.forderung = new Forderung     wie solls weiter gehen
 
   }
@@ -21,7 +21,7 @@ class Fahrt {
   kostenBerechen() {
     let kostenProPerson = 0;
     let gesamtKosten = this.verb * this.dist;
-    kostenProPerson = this.gesamtKosten / this.mitfahrerIDs.length;
+    kostenProPerson = gesamtKosten / (this.mitfahrerIDs.length+1);
 
     return kostenProPerson;
   }
@@ -30,7 +30,7 @@ class Fahrt {
     if (this.forderungsID == 'undefined' || this.forderungsID == null) {
       this.forderungsID = 1000;
     }
-    for (i = 0; i < mitfahrerIDs.length; i++) {
+    for (i = 0; i < this.mitfahrerIDs.length; i++) {
 
       this.neueForderung = new Forderung(this.forderungsID, this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.kostenProPerson);
       this.forderungsID = this.forderungsID + 1;

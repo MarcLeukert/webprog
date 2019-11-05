@@ -75,10 +75,12 @@ body {
   margin: 0 auto;
   width: 130px;
   height: 50px;
-  display: block;
+  display: inline;
+
+  text-align: center;
 }
 
-#createKonto {
+.butKonto {
   background: #dccdba;
   color: #000;
   height: 40px;
@@ -91,35 +93,35 @@ body {
   font-weight: bold;
 }
 
-#createKonto:focus {
+.butKonto:focus {
   outline: none;
 }
 
-#createKonto:before {
+.butKonto:before {
   display: block;
   position: absolute;
   height: 100%;
   opacity: 0.3;
 }
 
-#createKonto:after {
+.butKonto:after {
   display: block;
   position: absolute;
   height: 100%;
   opacity: 0;
 }
 
-#createKonto:hover {
+.butKonto:hover {
   background: #f8f8fb;
   cursor: pointer;
 }
 
-#createKonto:hover:before {
+.butKonto:hover:before {
   opacity: 0.6;
   transition: 1s;
 }
 
-#createKonto:hover:after {
+.butKonto:hover:after {
   opacity: 1;
   transition: 1s;
 }

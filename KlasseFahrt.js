@@ -19,6 +19,12 @@ class Fahrt {
     this.forderungHinzufuegen();
     this.verbindlichkeitHinzufuegen();
 
+
+    if(Fahrt.allInstances == 'undefined' || Fahrt.allInstances == null){
+      Fahrt.allInstances = [];
+    }
+
+    Fahrt.allInstances.push(this);
   }
 
   kostenBerechen() {

@@ -13,7 +13,6 @@ class User {
     }
 
     User.allInstances.push(this);
-    let buchungsArray = [];
   }
 
   //this.nullInstances = 0;

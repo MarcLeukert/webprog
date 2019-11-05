@@ -44,12 +44,13 @@ class neueFahrt {
     erstellenButton.addEventListener("click", () => {
 
       console.log("Funkt");
-      console.log(anzahlMitfahrerSelects);
+      console.log("Selects:" + anzahlMitfahrerSelects);
       let fahrerID = fahrerSelect.value; // kommt eigentlich aus objekt aus dem selectFahrer
       let mitfahrerIDs = []
+      mitfahrerIDs[0] = mitfahrerSelect.value;
       //mitfahrerIDs.push(mitfahrerSelect.value);
-      for(i=0; i<anzahlMitfahrerSelects;i++){
-        let zwi =document.getElementById("newDymSelect"+anzahlMitfahrerSelects);
+      for(i=1; i<anzahlMitfahrerSelects;i++){
+        let zwi =document.getElementById("newDymSelect"+i);
         mitfahrerIDs[i] = zwi.value;
         //mitfahrerIDs[i] = i+10;
 
@@ -130,6 +131,7 @@ function createSelectObjects(fS, mS) {    //um selects dynamisch zu füllen
 }
 
 function mitfahrerHinzufuegen(anzahlMitfahrerSelects) {
+  console.log("hinzu"+ anzahlMitfahrerSelects);
   let selectDivBox = document.getElementById("divWeiteresSelect");
   let neuesDiv = document.createElement("div");
   let neuesSpan = document.createElement("span");

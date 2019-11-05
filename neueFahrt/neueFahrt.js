@@ -48,7 +48,9 @@ class neueFahrt {
       let mitfahrerIDs = []
       //mitfahrerIDs.push(mitfahrerSelect.value);
       for(i=0; i<anzahlMitfahrerSelects;i++){
-        mitfahrerIDs[i] = document.getElementById("newDymSelect"+anzahlMitfahrerSelects).value;
+        //mitfahrerIDs[i] = document.getElementById("newDymSelect"+anzahlMitfahrerSelects).value;
+        mitfahrerIDs[i] = i+10;
+
       }
       inputDistanz = inputDistanz.value;
       inputVon = inputVon.value;

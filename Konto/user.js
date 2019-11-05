@@ -63,4 +63,4 @@ class User {
 anzahlVerbindlichkeiten = 0;
 anzahlForderungen = 0;
 test1 = new User(23,"Test1","Test1.1");
-test2 = new User(23,"Test2","Test2.1");
+test2 = new User(24,"Test2","Test2.1");

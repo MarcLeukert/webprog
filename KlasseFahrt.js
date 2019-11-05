@@ -13,16 +13,18 @@ class Fahrt {
     this.notiz = notiz;
     this.preis = this.kostenBerechen();
 
-    this.forderung = this.forderungErstellen();
+    this.forderungen = this.forderungErstellen();
     this.verbindlichkeiten = this.verbindlichkeitErstellen();
     // this.forderung = new Forderung     wie solls weiter gehen
+    this.forderungHinzufuegen();
+    this.verbindlichkeitHinzufuegen();
 
   }
 
   kostenBerechen() {
     let kostenProPerson = 0;
     let gesamtKosten = this.verb * this.dist;
-    kostenProPerson = gesamtKosten / (this.mitfahrerIDs.length+1);
+    kostenProPerson = gesamtKosten / (this.mitfahrerIDs.length + 1);
 
     return kostenProPerson;
   }
@@ -51,5 +53,26 @@ class Fahrt {
       this.verbindlichkeitsID = this.verbindlichkeitsID + 1;
     }
     return neueVerbindlichkeit;
+  }
+
+  forderungHinzufuegen() {
+    let instances = User.allInstances;
+    let j = 0;
+    for (j; j < instances.length; j++) {
+      if (instances[j].userID == this.fahrerID)
+        instances[j].amountForderungen = this.forderungen;
+    }
+  }
+  verbindlichkeitHinzufuegen() {
+    let instances = User.allInstances;
+    let j = 0,
+      i = 0;
+    for (j; j < instances.length; j++) {
+      for (i; i < mitfahrerIDs.length) {
+        if (instances[j].userID == this.mitfahrerIDs[i]) {
+          instances[j].amountForderungen = this.forderungen;
+        }
+      }
+    }
   }
 }

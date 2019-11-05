@@ -16,50 +16,66 @@ class anfangsSeite{
     this._app.setPageContent(domNodes);
 
     //this._app.setPageContent(htmlObject);
-      let newButton = document.getElementById("newUser")
-      let memoList = document.querySelector("body > main > ul");
+      let newButton = document.getElementById("butKontoBack");
+      let memoList = document.getElementById('userList');
 
-      let insertMemo = text => {
-        let liElement = document.createElement("li");
-        memoList.appendChild(liElement);
 
-        text = "Name";
-        let nameElement = document.createElement("p");
-        nameElement.textContent = text;
-        liElement.appendChild(nameElement);
+      //let insertUser = () => {
 
-        text2 = "Nachname";
-        let nachnameElement = document.createElement("p");
-        nachnameElement.textContent = text2;
-        liElement.appendChild(nachnameElement);
+          for (let i = 0; User.allInstances.length > i; i++) {
 
-        forderungen = "Forderungen: 40Bugs";
-        let forderungElement = document.createElement("label");
-        forderungElement.textContent = forderungen;
-        liElement.appendChild(forderungElement);
+              let liElement = document.createElement("li");
+              memoList.appendChild(liElement);
 
-        verb = "Verbindlcihkeiten: 10Bugs";
-        let verbElement = document.createElement("label");
-        verbElement.textContent = verb;
-        liElement.appendChild(verbElement);
+              let name = User.allInstances[i].vorname;
+              let nameElement = document.createElement("p");
+              nameElement.textContent = name;
+              liElement.appendChild(nameElement);
 
-        let detailsElement = document.createElement("a");
-        detailsElement.textContent = "Details";
-        detailsElement.classList.add("details");
-        liElement.appendChild(detailsElement);
+              let nachname = User.allInstances[i].nachname;
+              let nachnameElement = document.createElement("p");
+              nachnameElement.textContent = nachname;
+              liElement.appendChild(nachnameElement);
 
-        detailsElement.addEventListener("click", () => {
-          liElement.parentNode.removeChild(liElement);
-        });
+              let label_forderungen = "Forderungen:";
+              let label_forderungElement = document.createElement("label");
+              label_forderungElement.textContent = label_forderungen;
+              liElement.appendChild(label_forderungElement);
+
+              let forderungen = User.allInstances[i].forderungen;
+              let forderungElement = document.createElement("label");
+              forderungElement.textContent = forderungen;
+              liElement.appendChild(forderungElement);
+
+              let label_verb = "Verbindlichkeiten:";
+              let label_verbElement = document.createElement("label");
+              label_verbElement.textContent = label_verb;
+              liElement.appendChild(label_verbElement);
+
+              let verb = User.allInstances[i].verbindlichkeiten;
+              let verbElement = document.createElement("label");
+              verbElement.textContent = verb;
+
+              liElement.appendChild(verbElement);
+              let detailsElement = document.createElement("a");
+              detailsElement.textContent = "Details";
+              detailsElement.classList.add("details");
+              liElement.appendChild(detailsElement);
+              detailsElement.addEventListener("click", () => {
+                  liElement.parentNode.removeChild(liElement);
+              });
+          }
       };
 
-      //insertMemo("")
+
+
+      //insertMemo("");
 
       // Event Handler
-      newButton.addEventListener("click", () => {
-        // hier muss der button wenn auf erstelle neures Konto
-        insertMemo("");
-      });
+      // newButton.addEventListener("click", () => {
+      //   // hier muss der button wenn auf erstelle neures Konto
+      //   insertUser("");
+      // });
 
-  }
+  //}
 }

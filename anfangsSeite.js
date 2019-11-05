@@ -1,4 +1,4 @@
-class anfangsSeite {
+class anfangsSeite{
   constructor(app) {
     this._app = app;
   }
@@ -55,7 +55,7 @@ class anfangsSeite {
               let verb = User.allInstances[i].verbindlichkeiten;
               let verbElement = document.createElement("label");
               verbElement.textContent = verb;
-              
+
               liElement.appendChild(verbElement);
               let detailsElement = document.createElement("a");
               detailsElement.textContent = "Details";

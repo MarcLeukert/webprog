@@ -23,7 +23,8 @@ class Fahrt {
 
   kostenBerechen() {
     let kostenProPerson = 0;
-    let gesamtKosten = this.verb * this.dist;
+    let gesamtKosten = this.verb * this.dist * this.preisProL;
+    gesamtKosten = gesamtKosten /100;
     kostenProPerson = gesamtKosten / (this.mitfahrerIDs.length + 1);
 
     return kostenProPerson;

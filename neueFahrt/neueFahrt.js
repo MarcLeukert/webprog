@@ -28,6 +28,7 @@ class neueFahrt {
     let inputDatum = document.getElementById("inputDatum");
     let inputNotiz = document.getElementById("inputNotiz");
     let erstellenButton = document.getElementById("butErstellen");
+    let backButton = document.getElementById("butFahrtBack");
     let dataArray = [];
     let fahrtID = 100;
 
@@ -93,6 +94,10 @@ class neueFahrt {
     hinzuBut.addEventListener("click", function() {
       mitfahrerHinzufuegen();
     });
+
+    /* backButton.addEventListener("click", () => {
+
+    }); */
   }
 }
 

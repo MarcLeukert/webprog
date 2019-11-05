@@ -5,7 +5,7 @@ html, body {
   margin: 0;
   margin-left: 0;
 }
-
+/*soll nicht auf ganzen Body */
 body {
   background-image: url(https://images.pexels.com/photos/89784/bmw-suv-all-terrain-vehicle-fog-89784.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
   /* url(http://www.ogitix.de/fileadmin/dokumentation/ms-crm/Book_%20Microsoft%20CRM%20Schnittstelle_de_html/Files/187197/User_Add_35.jpg),
@@ -78,7 +78,7 @@ body {
   display: block;
 }
 
-button {
+#createKonto {
   background: #dccdba;
   color: #000;
   height: 40px;
@@ -91,35 +91,35 @@ button {
   font-weight: bold;
 }
 
-button:focus {
+#createKonto:focus {
   outline: none;
 }
 
-button:before {
+#createKonto:before {
   display: block;
   position: absolute;
   height: 100%;
   opacity: 0.3;
 }
 
-button:after {
+#createKonto:after {
   display: block;
   position: absolute;
   height: 100%;
   opacity: 0;
 }
 
-button:hover {
+#createKonto:hover {
   background: #f8f8fb;
   cursor: pointer;
 }
 
-button:hover:before {
+#createKonto:hover:before {
   opacity: 0.6;
   transition: 1s;
 }
 
-button:hover:after {
+#createKonto:hover:after {
   opacity: 1;
   transition: 1s;
 }

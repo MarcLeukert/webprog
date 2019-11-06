@@ -44,7 +44,7 @@ class anfangsSeite {
 
       let forderungen = 0;
       if (User.allInstances[i].sumForderungen != undefined) {
-         forderungen = User.allInstances[i].sumForderungen;
+        forderungen = User.allInstances[i].sumForderungen;
       }
       let forderungElement = document.createElement("label");
       forderungElement.textContent = forderungen;
@@ -63,46 +63,136 @@ class anfangsSeite {
       verbElement.textContent = verb;
 
       liElement.appendChild(verbElement);
+      //Detailbutton
       let detailsElement = document.createElement("button");
       detailsElement.textContent = "Details";
       detailsElement.classList.add("details");
+      detailsElement.setAttribute("id","detailNr"+i);
       liElement.appendChild(detailsElement);
-      detailsElement.addEventListener("click", () => {
-        liElement.parentNode.removeChild(liElement);
-      });
-    }
-    var table = document.getElementById('table');
 
-    // cycle through the array for each of the presidents
-    if (Fahrt.allInstances != undefined) {
-      for (var i = 0; i < Fahrt.allInstances.length; ++i) {
-        // keep a reference to an individual president object
-        var fahrtInstance = Fahrt.allInstances[i];
+      /* soll die Detailangaben in Modal View aufrufen, Container dafür */
+      let divModal = document.createElement("div");
+      divModal.setAttribute("class", "divModal");
+      let divModalInhalt = document.createElement("div");
+      divModalInhalt.setAttribute("class", "divModalInhalt");
+      let spanClose = document.createElement("span");
+      spanClose.setAttribute("class", "closeButton")
+      let divContent = document.createElement("div");
 
-        // create a row element to append cells to
-        var row = document.createElement('tr');
+      let createdTable = createTable();
 
-        // properties of the array elements
-        var properties = ['von', 'nach', 'dist', 'preis'];
+      divContent.appendChild(createdTable);
 
-        // append each one of them to the row in question, in order
-        for (var j = 0; j < properties.length; ++j) {
-          // create new data cell for names
-          var cell = document.createElement('td');
+      divContent.innerText = "Servus Erdnuss";
+      spanClose.innerText = "x" ;
+      divModalInhalt.appendChild(spanClose);
+      divModalInhalt.appendChild(divContent);
+      divModal.appendChild(divModalInhalt);
+      liElement.appendChild(divModal);
 
-          // set name of property using bracket notation (properties[j] is a string,
-          // which can be used to access properties of president)
-          cell.innerHTML = fahrtInstance[properties[j]];
-
-          // add to end of the row
-          row.appendChild(cell);
-        }
-
-        // add new row to table
-        table.appendChild(row);
+      function toggleModal(){
+        divModal.classList.toggle("showDivModal");
       }
+      window.addEventListener("click", () => {
+        if(event.target === divModal){
+          toggleModal();
+        }
+      });
+    spanClose.addEventListener("click",toggleModal);
+    detailsElement.addEventListener("click",toggleModal);
+
+    }
+
+    tabelleFahrtBefuellen(); //Befüllt die Tabelle mit erstellten Fahrten
+
+  }
+}
+
+function createTable(){
+  let table = document.createElement("table");
+
+  var tablehead1 = document.createElement("tablehead");
+  var tablehead2 = document.createElement("tablehead");
+  var tablehead3 = document.createElement("tablehead");
+  var tablehead4 = document.createElement("tablehead");
+
+  var orderArrayHeader = ["S.No","Date","Product Name","Client Name"];
+
+  var thead = document.createElement('thead');
+
+  table.appendChild(thead);
+
+  for(var y=0;y<orderArrayHeader.length;y++){
+      thead.appendChild(document.createElement("th")).
+      appendChild(document.createTextNode(orderArrayHeader[y]));
+  }
+/*
+  if (Fahrt.allInstances != undefined) {
+    for (var i = 0; i < Fahrt.allInstances.length; ++i) {
+      // keep a reference to an individual president object
+      var fahrtInstance = Fahrt.allInstances[i];
+
+      // create a row element to append cells to
+      var row = document.createElement('tr');
+
+      // properties of the array elements
+      var properties = ['von', 'nach', 'dist', 'preis'];
+
+      // append each one of them to the row in question, in order
+      for (var j = 0; j < properties.length; ++j) {
+        // create new data cell for names
+        var cell = document.createElement('td');
+
+        // set name of property using bracket notation (properties[j] is a string,
+        // which can be used to access properties of president)
+        cell.innerHTML = fahrtInstance[properties[j]];
+
+        // add to end of the row
+        row.appendChild(cell);
+      }
+
+      // add new row to table
+      table.appendChild(row);
     }
   }
+  */
+
+  return table;
+}
+
+function tabelleFahrtBefuellen(){
+  var table = document.getElementById('table');
+
+  // cycle through the array for each of the presidents
+  if (Fahrt.allInstances != undefined) {
+    for (var i = 0; i < Fahrt.allInstances.length; ++i) {
+      // keep a reference to an individual president object
+      var fahrtInstance = Fahrt.allInstances[i];
+
+      // create a row element to append cells to
+      var row = document.createElement('tr');
+
+      // properties of the array elements
+      var properties = ['von', 'nach', 'dist', 'preis'];
+
+      // append each one of them to the row in question, in order
+      for (var j = 0; j < properties.length; ++j) {
+        // create new data cell for names
+        var cell = document.createElement('td');
+
+        // set name of property using bracket notation (properties[j] is a string,
+        // which can be used to access properties of president)
+        cell.innerHTML = fahrtInstance[properties[j]];
+
+        // add to end of the row
+        row.appendChild(cell);
+      }
+
+      // add new row to table
+      table.appendChild(row);
+    }
+  }
+}
 
 
 
@@ -116,4 +206,3 @@ class anfangsSeite {
   // });
 
   //}
-}

@@ -6,7 +6,7 @@ class anfangsSeite {
 
     //this._recordId = matches[1];
     console.log("anfangsSeite klappt");
-    let html = await fetch("anfangsSeite.html");
+    let html = await fetch("Essentials/anfangsSeite.html");
     let htmlContent = "";
 
     if (html.ok) {
@@ -63,7 +63,7 @@ class anfangsSeite {
       verbElement.textContent = verb;
 
       liElement.appendChild(verbElement);
-      let detailsElement = document.createElement("a");
+      let detailsElement = document.createElement("button");
       detailsElement.textContent = "Details";
       detailsElement.classList.add("details");
       liElement.appendChild(detailsElement);

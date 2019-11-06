@@ -61,11 +61,11 @@ class neueFahrt {
           return;
         }
       }
-      z = 0, x = 0;
+      z = 0;
       for (z; z < mitfahrerIDs.length; z++) {
         x = 0;
-        for (x; mitfahrerIDs.length; x++){
-           if (mitfahrerIDs[z] == mitfahrerIDs[x]) {
+        for (x; x < mitfahrerIDs.length; x++){
+           if (mitfahrerIDs[z] == mitfahrerIDs[x] && x!=z) {
             alert("Mitfahrer wurde mehrmals ausgewählt");
             return;
           }

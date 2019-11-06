@@ -14,12 +14,14 @@
   <script src="./KlasseFahrt.js"></script>
   <script src="./forderungen.js"></script>
   <script src="./verbindlichkeiten.js"></script>
+  <script src="./detailPage.js"></script>
 
   <!--Stylesheets -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="übersicht.css">
   <link rel="stylesheet" href="../neueFahrt/neueFahrt.css">
   <link rel="stylesheet" href="../Konto/Konto.css" />
+  <link rel="stylesheet" href="./detailPage.css" />
   <script type="text/javascript">
     let pages = [
       {
@@ -37,6 +39,10 @@
       {
         url: "/neueFahrt",
         klasse: neueFahrt
+      },
+      {
+        url: "/Detailpage",
+        klasse: Detailpage
       }
     ];
     window.addEventListener("load", () => {

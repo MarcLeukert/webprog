@@ -38,21 +38,27 @@ class anfangsSeite {
       liElement.appendChild(nachnameElement);
 
       let label_forderungen = "Forderungen:";
-      let label_forderungElement = document.createElement("label");
+      let label_forderungElement = document.createElement("div");
       label_forderungElement.textContent = label_forderungen;
       liElement.appendChild(label_forderungElement);
 
-      let forderungen = User.allInstances[i].forderungen;
+      let forderungen = 0;
+      if (User.allInstances[i].sumForderungen != undefined) {
+         forderungen = User.allInstances[i].sumForderungen;
+      }
       let forderungElement = document.createElement("label");
       forderungElement.textContent = forderungen;
       liElement.appendChild(forderungElement);
 
       let label_verb = "Verbindlichkeiten:";
-      let label_verbElement = document.createElement("label");
+      let label_verbElement = document.createElement("div");
       label_verbElement.textContent = label_verb;
       liElement.appendChild(label_verbElement);
 
-      let verb = User.allInstances[i].verbindlichkeiten;
+      let verb = 0;
+      if (User.allInstances[i].sumVerbindlichkeiten != undefined) {
+        verb = User.allInstances[i].sumVerbindlichkeiten;
+      }
       let verbElement = document.createElement("label");
       verbElement.textContent = verb;
 
@@ -68,31 +74,33 @@ class anfangsSeite {
     var table = document.getElementById('table');
 
     // cycle through the array for each of the presidents
-    for (var i = 0; i < Fahrt.allInstances.length; ++i) {
-      // keep a reference to an individual president object
-      var fahrtInstance = Fahrt.allInstances[i];
+    if (Fahrt.allInstances != undefined) {
+      for (var i = 0; i < Fahrt.allInstances.length; ++i) {
+        // keep a reference to an individual president object
+        var fahrtInstance = Fahrt.allInstances[i];
 
-      // create a row element to append cells to
-      var row = document.createElement('tr');
+        // create a row element to append cells to
+        var row = document.createElement('tr');
 
-      // properties of the array elements
-      var properties = ['von', 'nach', 'dist','preis'];
+        // properties of the array elements
+        var properties = ['von', 'nach', 'dist', 'preis'];
 
-      // append each one of them to the row in question, in order
-      for (var j = 0; j < properties.length; ++j) {
-        // create new data cell for names
-        var cell = document.createElement('td');
+        // append each one of them to the row in question, in order
+        for (var j = 0; j < properties.length; ++j) {
+          // create new data cell for names
+          var cell = document.createElement('td');
 
-        // set name of property using bracket notation (properties[j] is a string,
-        // which can be used to access properties of president)
-        cell.innerHTML = fahrtInstance[properties[j]];
+          // set name of property using bracket notation (properties[j] is a string,
+          // which can be used to access properties of president)
+          cell.innerHTML = fahrtInstance[properties[j]];
 
-        // add to end of the row
-        row.appendChild(cell);
+          // add to end of the row
+          row.appendChild(cell);
+        }
+
+        // add new row to table
+        table.appendChild(row);
       }
-
-      // add new row to table
-      table.appendChild(row);
     }
   }
 

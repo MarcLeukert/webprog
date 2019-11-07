@@ -1,3 +1,12 @@
 Was noch gemacht werden muss:
 
 - Werte von sumVerb und sumFord auf zwei Nachkommastellen begrenzen
+- Datenbank einbinden
+- Tabellenjoins von Fahrt und User um bei Detailansicht alle Daten in Tabelle zu bekommen
+- TabelleFahrt schön machen
+- Hintergrund Fahrtenbuch und Konto verschönern
+- Detailansicht verbessern
+- Detailkarten verschönern
+- Detailtabelle verschönern
+- Modal Größe und Aussehen anpassen
+- evtl. Begrüßungsscreen mit Erklärung der Website

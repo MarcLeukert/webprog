@@ -80,7 +80,13 @@ class anfangsSeite {
       let divContent = document.createElement("div");
       divContent.setAttribute("id", "divContent");
 
-      let createdTable = createTable();
+      let detailDiv = document.createElement("div");
+      detailDiv.textContent = "Keine Details vorhanden";
+
+      let createdTable = detailDiv;
+      if (User.allInstances[i].sumVerbindlichkeiten != undefined || User.allInstances[i].sumForderungen != undefined) {
+        createdTable = createDetailsTable(i);
+      }
 
       divContent.appendChild(createdTable);
 
@@ -109,17 +115,16 @@ class anfangsSeite {
   }
 }
 
-function createTable() {
+function createDetailsTable(derZaehler) {
+  let zaehler = derZaehler;
   let table = document.createElement("table");
   table.setAttribute("id", "createdTable");
 
-  var orderArrayHeader = ["Spalte1", "Spalte2", "Spalte3", "Spalte4"];
-  var arrayData = [
-    ["Hallo1", "Servus1", "hallochen1", "dude1"],
-    ["Hallo2", "Servus2", "hallochen2", "dude2"],
-    ["Hallo3", "Servus3", "hallochen3", "dude3"],
-    ["Hallo4", "Servus4", "hallochen4", "dude4"]
-  ]
+  var orderArrayHeader = ["Art", "An / Von", "Betrag", "Datum der Fahrt"];
+  var forderungen = [],
+    verbindlichkeiten = [];
+  forderungen = User.allInstances[zaehler].amountForderungen;
+  verbindlichkeiten = User.allInstances[zaehler].amountVerbindlichkeiten;
 
   let thead = table.createTHead();
   let row = thead.insertRow();
@@ -131,16 +136,42 @@ function createTable() {
   }
   let j = 0,
     h = 0;
-  for (j; j < arrayData.length; j++) {
-    let checkAr = arrayData[j];
+  for (j; j < forderungen.length; j++) {
+    let checkAr = forderungen[j];
     let row = table.insertRow();
-    h = 0;
-    for (h; h < arrayData[j].length; h++) {
-      let checkDa = arrayData[j][h];
-      let cell = row.insertCell();
-      let text = document.createTextNode(arrayData[j][h]);
-      cell.appendChild(text);
-    }
+    //for (h; h < arrayData[j].length; h++) {
+    //let checkDa = forderungen[j][h];
+    let cell1 = row.insertCell();
+    let art = document.createTextNode("Forderung");
+    cell1.appendChild(art);
+    let cell2 = row.insertCell();
+    let vonAn = document.createTextNode(forderungen[j]._schuldnerID);
+    cell2.appendChild(vonAn);
+    let cell3 = row.insertCell();
+    let betrag = document.createTextNode(forderungen[j].wert);
+    cell3.appendChild(betrag);
+    let cell4 = row.insertCell();
+    let datum = document.createTextNode("20.01.2019");
+    cell4.appendChild(datum);
+  }
+  j = 0;
+  for (j; j < verbindlichkeiten.length; j++) {
+    let checkAr = verbindlichkeiten[j];
+    let row = table.insertRow();
+    //for (h; h < arrayData[j].length; h++) {
+    //let checkDa = forderungen[j][h];
+    let cell1 = row.insertCell();
+    let art = document.createTextNode("Verbindlichkeit");
+    cell1.appendChild(art);
+    let cell2 = row.insertCell();
+    let vonAn = document.createTextNode(verbindlichkeiten[j].glaubigerID);
+    cell2.appendChild(vonAn);
+    let cell3 = row.insertCell();
+    let betrag = document.createTextNode(verbindlichkeiten[j].wert);
+    cell3.appendChild(betrag);
+    let cell4 = row.insertCell();
+    let datum = document.createTextNode("20.01.2019");
+    cell4.appendChild(datum);
   }
   return table;
 }

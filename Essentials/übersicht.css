@@ -28,8 +28,13 @@ body {
   font-size: 12pt;
   width: 100%
 }
-.divAnfang{
-  background-color: red;
+.divAnfangAußen{
+  background-color: #848484;
+  height: auto;
+  margin: auto; //div zentrieren
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 50px;
 }
 .divAnfangFahrt{
   background-color: blue;
@@ -38,22 +43,65 @@ body {
   background-color: yellow;
 }
 .anfangUebersicht{
-  background-color: red;
+  font-size: 24px;
+  text-align: center;
 }
 .divAnfangInnen{
-  background-color: blue;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+#table{
+
 }
 .divTablecontainer{
-  background-color: green;
+  background-color: red;
+  display: inline;
+  width: 80%;
+  margin-left: 100px;
 }
 .aContainer{
   display: inline;
-  background-color: green;
-  width: 50%;
+  min-width: inherit;
 }
-
+.containerFuerButton{
+  margin-left: 100px;
+}
+#userList{
+  padding: 50px;
+}
 .buttonAnfang {
-  margin: 40px;
+	/*box-shadow: 3px 4px 0px 0px #2f4f4b; */
+	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+	background-color:#768d87;
+	border-radius:5px;
+	border:1px solid #566963;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:17px;
+	font-weight:bold;
+	padding:12px 44px;
+  text-align: center;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #2b665e;
+  margin: 30px;
+  height: 40px;
+  appearance: button;
+
+}
+.buttonAnfang:hover {
+	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+	background-color:#6c7c7c;
+}
+.buttonAnfang:active {
+	position:relative;
+	top:1px;
+}
+/*
+.buttonAnfang {
+  margin: 20px;
   width: 30%
   background: none;
   background-color: black;
@@ -101,9 +149,11 @@ body {
   opacity: 1;
   transition: 1s;
 }
+*/
 table {
   border-collapse: collapse;
   width: 50%;
+  text-align: center;
 }
 th,td {
  border: 1px solid #ddd;

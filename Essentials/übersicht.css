@@ -1,21 +1,13 @@
-html, body {
-  margin-top: 0;
-  margin-bottom: 0;
-  margin-right: 0;
-  margin: 0;
-  margin-left: 0;
+body {
+    margin: 0;
+    width: 100%;
+    height: 100vh;
+    font-family: "Exo", sans-serif;
+    color: #fff;
+    background: linear-gradient(-45deg, #283048, #859398);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
 }
-
-/body{
-/*  background-image: url(https://wasliestdu.de/dateien/styles/680x380/public/artikel/die-leere-nach-einem-guten-buch.jpg?itok=icsvyvoM);
-*/
-/*background-color: grey;+*/
-background-repeat:  no-repeat;
-background-position: center 0px;
-background-size: 100%;
-}
-
-
 .header {
   background: none;
   /*  linear-gradient(to bottom, blue, #e6e6ff) */
@@ -36,14 +28,35 @@ background-size: 100%;
   font-size: 12pt;
   width: 100%
 }
+.divAnfang{
+  background-color: red;
+}
+.divAnfangFahrt{
+  background-color: blue;
+}
+.divAnfangUser{
+  background-color: yellow;
+}
+.anfangUebersicht{
+  background-color: red;
+}
+.divAnfangInnen{
+  background-color: blue;
+}
+.divTablecontainer{
+  background-color: green;
+}
 .aContainer{
-  margin: 40px;
+  display: inline;
+  background-color: green;
+  width: 50%;
 }
-.buttonAnfang{
+
+.buttonAnfang {
   margin: 40px;
-}
-button {
+  width: 30%
   background: none;
+  background-color: black;
   color: #000;
   height: 40px;
   border: 1 solid #000000;
@@ -53,11 +66,11 @@ button {
   box-shadow: 3px 2px 2px rgba(0,0,0,0.5);
 }
 
-button:focus {
+.buttonAnfang:focus {
   outline: none;
 }
 
-button:before {
+.buttonAnfang:before {
 
   display: block;
   position: absolute;
@@ -66,7 +79,7 @@ button:before {
   opacity: 0.3s;
 }
 
-button:after {
+.buttonAnfang:after {
   display: block;
   position: absolute;
   background: rbga(255, 255, 255, .2);
@@ -74,17 +87,17 @@ button:after {
   opacity: 0;
 }
 
-button:hover {
+.buttonAnfang:hover {
   background: #f8f8fb;
   cursor: pointer;
 }
 
-button:hover:before {
+.buttonAnfang:hover:before {
   opacity: 0.6;
   transition: 1s;
 }
 
-button:hover:after {
+.buttonAnfang:hover:after {
   opacity: 1;
   transition: 1s;
 }

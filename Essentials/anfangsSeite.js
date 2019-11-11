@@ -25,6 +25,7 @@ class anfangsSeite {
     for (let i = 0; User.allInstances.length > i; i++) {
 
       let liElement = document.createElement("li");
+      liElement.setAttribute("class","liItemAnfang");
       memoList.appendChild(liElement);
 
       let name = User.allInstances[i].vorname;

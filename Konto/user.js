@@ -8,12 +8,14 @@ class User {
     this.sumForderungen = this.updateSumForderungen();
     this.sumVerbindlichkeiten = this.updateSumVerbindlichkeiten();
 
-    if(User.allInstances == 'undefined' || User.allInstances == null){
-      User.allInstances = [];
-    }
+  //   if(User.allInstances == 'undefined' || User.allInstances == null){
+  //     User.allInstances = [];
+  //   }
+  //
+  //   User.allInstances.push(this);
+  // }
 
-    User.allInstances.push(this);
-  }
+  this.writeUserData(this.userID, this.vorname, this.nachname, this.amountForderungen, this.amountVerbindlichkeiten);
 
   //this.nullInstances = 0;
 
@@ -21,6 +23,7 @@ class User {
 
     return User.allInstances;
   } */
+}
   addVerbindlichkeiten(verbObj){
     this.amountVerbindlichkeiten[anzahlVerbindlichkeiten] = verbObj;
     anzahlVerbindlichkeiten++;;
@@ -76,6 +79,16 @@ class User {
       }
        this.sumVerbindlichkeiten = sum;
     }
+  }
+
+  writeUserData(userID, vorname, nachname, amountForderungen, amountVerbindlichkeiten){
+    firebase.database().ref('users/' + userID).set({
+      userID : userID,
+      vorname : vorname,
+      nachname : nachname,
+      amountForderungen : amountForderungen,
+      amountVerbindlichkeiten : amountVerbindlichkeiten
+      });
   }
 
 }

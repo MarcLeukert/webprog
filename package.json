@@ -1,0 +1,26 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "Daten",
+  "main": "app.js",
+  "dependencies": {
+    "connect": "^3.7.0",
+    "firebase": "^7.2.3",
+    "serve-static": "^1.14.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MarcLeukert/webprog.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MarcLeukert/webprog/issues"
+  },
+  "homepage": "https://github.com/MarcLeukert/webprog#readme"
+}

@@ -71,6 +71,13 @@ class neueFahrt {
           }
         }
       }
+
+      if (inputDistanz.value == "" || inputVon.value == "" ||
+        inputNach.value == "" || inputPreis.value == "" ||
+        inputDatum.value == "" || inputVerbrauch.value == "") {
+        alert("Es sind nicht alle erforderlichen Felder ausgefüllt");
+        return; // return noch zu falsche seite, homscreen soll auf seite bleiben
+      }
       console.log("Function läuft weiter");
       inputDistanz = inputDistanz.value;
       inputVon = inputVon.value;

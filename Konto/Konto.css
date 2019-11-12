@@ -33,8 +33,9 @@ body {
 .divInput {
   background: none;
   /* radial-gradient(#8b8bff, white) */
-  height: 300px;
-  width: 400px;
+
+  width: 40%;
+  height: auto;
   margin: 0 auto;
   transform: translateY(12%);
   border-radius: 30px;
@@ -43,8 +44,8 @@ body {
 
 .divvorundnachname {
   margin: 0 auto;
-  width: 200px;
-  height: 250px;
+  width: auto;
+  height: auto;
 }
 
 .divvorname {

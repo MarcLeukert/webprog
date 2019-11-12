@@ -1,42 +1,41 @@
-<a href="#/neueFahrt">
-  <button type="button" name ="newTrip" id="newTrip">Neue Fahrt</button>
-</a>
-<div id="tablecontainer">
-  <table id="table">
-    <th>Von</th>
-    <th>Nach</th>
-    <th>Distanz</th>
-    <th>Total</th>
-  </table>
+<div id=divAnfangAußen class="divAnfangAußen">
+  <div class="divAnfangInnen">
+    <span id="anfangFahrtenUebersicht" class="anfangUebersicht">Fahrtenübersicht</span>
+    <span class="containerFuerButton">
+      <a href="#/neueFahrt" class="aContainer">
+        <button type="button" name="newTrip" class="buttonAnfang" id="newTrip">Neue Fahrt</button>
+      </a>
+    </span>
+  </div>
+  <div id="divTablecontainer" class="divTablecontainer">
+    <table id="table" align="center">
+      <th>Von</th>
+      <th>Nach</th>
+      <th>Distanz</th>
+      <th>Total</th>
+    </table>
+  </div>
 </div>
 
-
-
-
-<br>
-<div align="center">Userübersicht</div>
-
-<!-- <button type="button" name="newUser" id="newUser">Neuer Benutzer</button> -->
-
-<div>
-  <li>
-    <a href="#/neuesKonto">
-      <button type="button" name="newUser" id="newKonto">Neues Konto</button>
+<div class="divAnfangInnen">
+  <span id="anfangUserUebersicht" class="anfangUebersicht">Userübersicht</span>
+  <span class="containerFuerButton">
+    <a href="#/neuesKonto" class="aContainer">
+      <button type="button" class="buttonAnfang" name="newUser" id="newKonto">Neues Konto</button>
     </a>
-  </li>
+  </span>
 </div>
 <div id="testDiv">
 </div>
-
 <ul id="userList">
   <!--  Anfnag eines Notitzzettels -->
-  <li>
-    <p>
+  <li class="classLi">
+    <p class="classP">
       HANNES
     </p>
     <p>Schaetzle</p>
     <p>
-      <label>40$</label>
+      <label class="classLabel">40$</label>
     </p>
     <a onclick="removeEl(this)" , class="delete">Setze Konto zurück</a>
   </li>

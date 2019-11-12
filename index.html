@@ -5,25 +5,68 @@
   <meta charset="utf-8">
   <title>Fahrtenbuch</title>
   <!-- Hauptscript -->
-  <script src="./app.js" charset="utf-8"> </script>
+
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+  <script type="text/javascript">
+      var firebaseConfig = {
+          apiKey: "AIzaSyBsst2eO0s9sbU1KT5oRcWZSWHw1TaCNps",
+          authDomain: "webprog-fahrtenbuch.firebaseapp.com",
+          databaseURL: "https://webprog-fahrtenbuch.firebaseio.com",
+          projectId: "webprog-fahrtenbuch",
+          storageBucket: "webprog-fahrtenbuch.appspot.com",
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+
+      const dbRefObject = firebase.database();
+      const refUser = dbRefObject.ref("/users");
+      const refTrip = dbRefObject.ref("/trips");
+
+      function retrieveUserData() {
+        refUser.on("value", function(snapshot) {
+          User.allInstances = snapshot.val();
+        }, function(errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+      }
+      function retrieveTripData() {
+        refTrip.on("value", function(snapshot) {
+          Fahrt.allInstances = snapshot.val();
+        }, function(errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+      }
+
+
+  </script>
   <!-- Weitere Scripte -->
+  <script src="./app.js" charset="utf-8"> </script>
   <script src="../Konto/Konto.js"> </script>
   <script src="../Konto/user.js"> </script>
+  <script type="text/javascript">
+      retrieveUserData();
+  </script>
   <script src="../neueFahrt/neueFahrt.js"></script>
   <script src="../Essentials/anfangsSeite.js"></script>
   <script src="../Hilfsklassen/KlasseFahrt.js"></script>
+  <script type="text/javascript">
+      retrieveTripData();
+  </script>
   <script src="../Hilfsklassen/forderungen.js"></script>
   <script src="../Hilfsklassen/verbindlichkeiten.js"></script>
-
   <!--Stylesheets -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+-->
   <link rel="stylesheet" href="../Essentials/übersicht.css">
   <link rel="stylesheet" href="../neueFahrt/neueFahrt.css">
   <link rel="stylesheet" href="../Konto/Konto.css" />
   <link rel="stylesheet" href="../Essentials/detailPage.css" />
+
   <script type="text/javascript">
-    let pages = [
-      {
+    let pages = [{
         url: "",
         klasse: anfangsSeite
       },
@@ -48,6 +91,10 @@
 </head>
 
 <body>
+<pre id="object">
+</pre>
+
+
   <header class="header">
     <div align="center">Fahrtenbuch</div>
     <div id="headercontent"> </div>
@@ -60,7 +107,7 @@
   <!-- Anfang der Erstellung neuer Konten -->
   <main>
     <div id="content">
-<!--      <a type="button" name="newTrip" href="#/neueFahrt" id="newTrip">Neue Fahrt</a>
+      <!--      <a type="button" name="newTrip" href="#/neueFahrt" id="newTrip">Neue Fahrt</a>
       <table id="fahrtenTable">
         <caption>Latest 5 Trips</caption>
         <thead>
@@ -120,9 +167,9 @@
           </tr>
         </tbody>
       </table> -->
-<!--      <ul>
+      <!--      <ul>
         <!--  Anfnag eines Notitzzettels -->
-<!--        <li>
+      <!--        <li>
           <p>
             HANNES
           </p>
@@ -134,7 +181,7 @@
         </li>
 
         <!-- ende -->
-<!--      </ul> -->
+      <!--      </ul> -->
     </div>
   </main>
 

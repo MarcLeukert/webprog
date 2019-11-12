@@ -20,11 +20,13 @@ class Fahrt {
     this.verbindlichkeitHinzufuegen();
 
 
-    if(Fahrt.allInstances == 'undefined' || Fahrt.allInstances == null){
-      Fahrt.allInstances = [];
-    }
+    // if(Fahrt.allInstances == 'undefined' || Fahrt.allInstances == null){
+    //   Fahrt.allInstances = [];
+    // }
+    //
+    // Fahrt.allInstances.push(this);
 
-    Fahrt.allInstances.push(this);
+    this.writeTripData(this.fahrtID, this.fahrerID, this.mitfahrerIDs, this.von, this.nach, this.preis, this.dist, this.verb, this.datum, this.notiz);
   }
 
   kostenBerechen() {
@@ -88,5 +90,19 @@ class Fahrt {
         }
       }
     }
+  }
+  writeTripData(fahrtID, fahrerID, mitfahrerIDs, von, nach, preis, dist, verb, datum, notiz){
+    firebase.database().ref('trips/' + fahrtID).set({
+      fahrtID : fahrtID,
+      fahrerID : fahrerID,
+      mitfahrerIDs : Object.values(mitfahrerIDs),
+      von : von,
+      nach: nach,
+      preis : preis,
+      dist: dist,
+      verb: verb,
+      datum: datum,
+      notiz: notiz
+      });
   }
 }

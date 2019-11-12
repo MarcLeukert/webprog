@@ -7,6 +7,8 @@ class App {
     window.addEventListener("hashchange", () => {
       this._handleRoute();
     });
+
+
   }
   _handleRoute() {
     let pageURL = location.hash.slice(1);

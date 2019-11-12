@@ -179,12 +179,12 @@ function createDetailsTable(derZaehler) {
 
 function tabelleFahrtBefuellen() {
   var table = document.getElementById('table');
+  var snapshotArray = Object.values(Fahrt.allInstances);
 
-  // cycle through the array for each of the presidents
-  if (Fahrt.allInstances != undefined) {
-    for (var i = 0; i < Fahrt.allInstances.length; ++i) {
+  if (snapshotArray != undefined) {
+    for (var i = 0; i < snapshotArray.length; ++i) {
       // keep a reference to an individual president object
-      var fahrtInstance = Fahrt.allInstances[i];
+      var fahrtInstance = snapshotArray[i];
 
       // create a row element to append cells to
       var row = document.createElement('tr');

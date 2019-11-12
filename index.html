@@ -22,6 +22,23 @@
 
 
       const dbRefObject = firebase.database();
+      const refUser = dbRefObject.ref("/users");
+      const refTrip = dbRefObject.ref("/trips");
+
+      function retrieveUserData() {
+        refUser.on("value", function(snapshot) {
+          User.allInstances = snapshot.val();
+        }, function(errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+      }
+      function retrieveTripData() {
+        refTrip.on("value", function(snapshot) {
+          Fahrt.allInstances = snapshot.val();
+        }, function(errorObject) {
+          console.log("The read failed: " + errorObject.code);
+        });
+      }
 
 
   </script>
@@ -29,9 +46,15 @@
   <script src="./app.js" charset="utf-8"> </script>
   <script src="../Konto/Konto.js"> </script>
   <script src="../Konto/user.js"> </script>
+  <script type="text/javascript">
+      retrieveUserData();
+  </script>
   <script src="../neueFahrt/neueFahrt.js"></script>
   <script src="../Essentials/anfangsSeite.js"></script>
   <script src="../Hilfsklassen/KlasseFahrt.js"></script>
+  <script type="text/javascript">
+      retrieveTripData();
+  </script>
   <script src="../Hilfsklassen/forderungen.js"></script>
   <script src="../Hilfsklassen/verbindlichkeiten.js"></script>
   <!--Stylesheets -->

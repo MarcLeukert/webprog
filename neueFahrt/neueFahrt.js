@@ -132,7 +132,7 @@ function createSelectObjects(fS, mS) { //um selects dynamisch zu füllen
   let manu = new User(3, "Manuel", "Koe");
   let till = new User(4,"Till","Schirr"); */
   //User.allInstances.push(tim);
-  let instances = User.allInstances;
+  let instances = Object.values(User.allInstances);
 
   //let instances = ["Whaat","Till","Stinkt"];
 

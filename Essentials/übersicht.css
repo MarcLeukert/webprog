@@ -3,8 +3,8 @@ body {
     width: 100%;
     height: 100vh;
     font-family: "Exo", sans-serif;
-    color: #fff;
-    background: linear-gradient(-45deg, #283048, #859398);
+    color: #000;
+    background: linear-gradient(-45deg,  #ebedf4, #d7ecf3);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
 }
@@ -29,7 +29,7 @@ body {
   width: 100%
 }
 .divAnfangAußen{
-  background-color: #848484;
+  background-color: #c3bebe;
   height: auto;
   margin: auto; //div zentrieren
   display: inline-block;

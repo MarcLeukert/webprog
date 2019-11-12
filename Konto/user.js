@@ -5,8 +5,8 @@ class User {
     this.nachname = nachname;
     this.amountForderungen = [];
     this.amountVerbindlichkeiten = [];
-    this.sumForderungen = this.updateSumForderungen();
-    this.sumVerbindlichkeiten = this.updateSumVerbindlichkeiten();
+    this.sumForderungen = this.updateSumForderungen().toFixed(2);
+    this.sumVerbindlichkeiten = this.updateSumVerbindlichkeiten().toFixed(2);
 
     //   if(User.allInstances == 'undefined' || User.allInstances == null){
     //     User.allInstances = [];

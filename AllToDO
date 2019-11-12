@@ -1,6 +1,6 @@
 Was noch gemacht werden muss:
 
-- Werte von sumVerb und sumFord auf zwei Nachkommastellen begrenzen
+- Werte von sumVerb und sumFord auf zwei Nachkommastellen begrenzen !! done mit toFixed(2) in user.js
 - Datenbank einbinden
 - Tabellenjoins von Fahrt und User um bei Detailansicht alle Daten in Tabelle zu bekommen
 - TabelleFahrt schön machen

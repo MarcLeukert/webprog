@@ -5,8 +5,8 @@ class User {
     this.nachname = nachname;
     this.amountForderungen = [];
     this.amountVerbindlichkeiten = [];
-    this.sumForderungen = this.updateSumForderungen().toFixed(2);
-    this.sumVerbindlichkeiten = this.updateSumVerbindlichkeiten().toFixed(2);
+    this.sumForderungen = this.updateSumForderungen();
+    this.sumVerbindlichkeiten = this.updateSumVerbindlichkeiten();
 
     //   if(User.allInstances == 'undefined' || User.allInstances == null){
     //     User.allInstances = [];
@@ -93,7 +93,7 @@ class User {
   }
 
    retrieveData() {
-    ref.on("value", function(snapshot) {
+    refUser.on("value", function(snapshot) {
       User.allInstances = snapshot.val();
     }, function(errorObject) {
       console.log("The read failed: " + errorObject.code);

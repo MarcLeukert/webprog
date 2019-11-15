@@ -22,18 +22,31 @@ class anfangsSeite {
 
     //let insertUser = () => {
 
-    for (let i = 0; User.allInstances.length > i; i++) {
+    await refUser.once("value", async function(snapshot) {
+      User.allInstances = await snapshot.val();
+    }, function(errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+
+    await refTrip.once("value", async function(snapshot) {
+      Fahrt.allInstances = await snapshot.val();
+    }, function(errorObject) {
+      console.log("The read failed: " + errorObject.code);
+    });
+
+    for (let i = 0; Object.keys(User.allInstances).length > i; i++) {
 
       let liElement = document.createElement("li");
       liElement.setAttribute("class","liItemAnfang");
       memoList.appendChild(liElement);
 
-      let name = User.allInstances[i].vorname;
+
+      let name = Object.entries(User.allInstances)[i][1].vorname;
       let nameElement = document.createElement("p");
       nameElement.textContent = name;
       liElement.appendChild(nameElement);
 
-      let nachname = User.allInstances[i].nachname;
+      let nachname = Object.entries(User.allInstances)[i][1].nachname;
       let nachnameElement = document.createElement("p");
       nachnameElement.textContent = nachname;
       liElement.appendChild(nachnameElement);
@@ -44,8 +57,8 @@ class anfangsSeite {
       liElement.appendChild(label_forderungElement);
 
       let forderungen = 0;
-      if (User.allInstances[i].sumForderungen != undefined) {
-        forderungen = User.allInstances[i].sumForderungen;
+      if (Object.keys(User.allInstances)[i].sumForderungen != undefined) {
+        forderungen = Object.keys(User.allInstances)[i].sumForderungen;
       }
       let forderungElement = document.createElement("label");
       forderungElement.textContent = forderungen;
@@ -57,8 +70,8 @@ class anfangsSeite {
       liElement.appendChild(label_verbElement);
 
       let verb = 0;
-      if (User.allInstances[i].sumVerbindlichkeiten != undefined) {
-        verb = User.allInstances[i].sumVerbindlichkeiten;
+      if (Object.keys(User.allInstances)[i].sumVerbindlichkeiten != undefined) {
+        verb = Object.keys(User.allInstances)[i].sumVerbindlichkeiten;
       }
       let verbElement = document.createElement("label");
       verbElement.textContent = verb;
@@ -85,7 +98,7 @@ class anfangsSeite {
       detailDiv.textContent = "Keine Details vorhanden";
 
       let createdTable = detailDiv;
-      if (User.allInstances[i].sumVerbindlichkeiten != undefined || User.allInstances[i].sumForderungen != undefined) {
+      if (Object.keys(User.allInstances)[i].sumVerbindlichkeiten != undefined || Object.keys(User.allInstances)[i].sumForderungen != undefined) {
         createdTable = createDetailsTable(i);
       }
 
@@ -124,8 +137,8 @@ function createDetailsTable(derZaehler) {
   var orderArrayHeader = ["Art", "An / Von", "Betrag", "Datum der Fahrt"];
   var forderungen = [],
     verbindlichkeiten = [];
-  forderungen = User.allInstances[zaehler].amountForderungen;
-  verbindlichkeiten = User.allInstances[zaehler].amountVerbindlichkeiten;
+  forderungen = Object.keys(User.allInstances)[zaehler].amountForderungen;
+  verbindlichkeiten = Object.keys(User.allInstances)[zaehler].amountVerbindlichkeiten;
 
   let thead = table.createTHead();
   let row = thead.insertRow();

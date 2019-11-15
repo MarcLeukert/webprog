@@ -16,9 +16,9 @@
           databaseURL: "https://webprog-fahrtenbuch.firebaseio.com",
           projectId: "webprog-fahrtenbuch",
           storageBucket: "webprog-fahrtenbuch.appspot.com",
-        };
-        // Initialize Firebase
-        firebase.initializeApp(firebaseConfig);
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
 
 
       const dbRefObject = firebase.database();
@@ -39,8 +39,6 @@
           console.log("The read failed: " + errorObject.code);
         });
       }
-
-
   </script>
   <!-- Weitere Scripte -->
   <script src="./app.js" charset="utf-8"> </script>

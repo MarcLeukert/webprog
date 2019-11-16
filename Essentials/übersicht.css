@@ -305,11 +305,36 @@ main>#content>ul>li {
 
 main>#content>ul>li>p {
   margin: 0;
+  margin-bottom: 0.2em;
+  font-size: large;
+  padding:0;
+  position: relative;
+  word-break: break-all;
 }
 
 main>#content>ul>li>p>label {
   margin: 0;
+  word-break: break-all;
 }
+
+main>#content>ul>li>label {
+  margin: 0;
+  word-break: break-all;
+  font-size: large;
+
+}
+
+
+main>#content>ul>li>div {
+  margin: 0;
+  margin-top: 0.4em;
+  font-style: italic;
+  font-weight: bold;
+  padding:0;
+  position: relative;
+  word-break: break-all;
+}
+
 
 main>#content>ul>li>.details {
   position: absolute;

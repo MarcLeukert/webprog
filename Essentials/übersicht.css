@@ -1,13 +1,14 @@
 body {
-    margin: 0;
-    width: 100%;
-    height: 100vh;
-    font-family: "Exo", sans-serif;
-    color: #000;
-    background: linear-gradient(-45deg,  #ebedf4, #d7ecf3);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+  margin: 0;
+  width: 100%;
+  height: 100vh;
+  font-family: "Exo", sans-serif;
+  color: #000;
+  background: linear-gradient(-45deg, #ebedf4, #d7ecf3);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
 }
+
 .header {
   background: none;
   /*  linear-gradient(to bottom, blue, #e6e6ff) */
@@ -19,85 +20,196 @@ body {
   font-weight: bold;
 }
 
-#trips{
+#trips {
   color: #000;
 }
 
-.labeluser{
+.modalDiv {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 10;
+  /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+  position: absolute;
+  top: 10px;
+  right: 100px;
+  bottom: 0;
+  left: 0;
+  z-index: 8888;
+  overflow-y: auto;
+}
+.divModal {
+  position: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 99999;
+  opacity: 0;
+  -webkit-transition: opacity 400ms ease-in;
+  -moz-transition: opacity 400ms ease-in;
+  transition: opacity 400ms ease-in;
+}
+
+.divModal:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.closeButton {
+  background: #606061;
+  color: #FFFFFF;
+  line-height: 25px;
+  position: absolute;
+  right: -12px;
+  text-align: center;
+  top: -10px;
+  width: 24px;
+  text-decoration: none;
+  font-weight: bold;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -moz-box-shadow: 1px 1px 3px #000;
+  -webkit-box-shadow: 1px 1px 3px #000;
+  box-shadow: 1px 1px 3px #000;
+}
+
+.closeButton:hover {
+  background: #00d9ff;
+}
+
+.labeluser {
   color: #000;
   font-size: 12pt;
   width: 100%
 }
-.divAnfangAußen{
+
+.divAnfangAußen {
   background-color: #c3bebe;
   height: auto;
   margin: auto; //div zentrieren
   display: inline-block;
   width: 100%;
   padding-bottom: 50px;
+  border-radius: 10px;
 }
-.divAnfangFahrt{
+
+.divAnfangFahrt {
   background-color: blue;
 }
-.divAnfangUser{
+
+.divAnfangUser {
   background-color: yellow;
 }
-.anfangUebersicht{
+
+.anfangUebersicht {
   font-size: 24px;
   text-align: center;
 }
-.divAnfangInnen{
+
+.divAnfangInnen {
   text-align: center;
   margin-top: 30px;
   margin-bottom: 20px;
 }
-#table{
 
-}
-.divTablecontainer{
+#table {}
+
+.divTablecontainer {
   background-color: red;
   display: inline;
   width: 80%;
   margin-left: 100px;
 }
-.aContainer{
+
+.aContainer {
   display: inline;
   min-width: inherit;
 }
-.containerFuerButton{
+
+.containerFuerButton {
   margin-left: 100px;
 }
-#userList{
+
+#userList {
   padding: 50px;
 }
+
 .buttonAnfang {
-	/*box-shadow: 3px 4px 0px 0px #2f4f4b; */
-	background:linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-	background-color:#768d87;
-	border-radius:5px;
-	border:1px solid #566963;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	font-weight:bold;
-	padding:12px 44px;
+  /*box-shadow: 3px 4px 0px 0px #2f4f4b; */
+  background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+  background-color: #768d87;
+  border-radius: 5px;
+  border: 1px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 12px 44px;
   text-align: center;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #2b665e;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2b665e;
   margin: 30px;
   height: 40px;
   appearance: button;
+}
 
-}
 .buttonAnfang:hover {
-	background:linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
-	background-color:#6c7c7c;
+  background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+  background-color: #6c7c7c;
 }
+
 .buttonAnfang:active {
-	position:relative;
-	top:1px;
+  position: relative;
+  top: 1px;
+}
+.detailButton {
+  /*box-shadow: 3px 4px 0px 0px #2f4f4b; */
+  background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
+  background-color: #768d87;
+  border-radius: 5px;
+  border: 1px solid #566963;
+  display: inline-block;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 12px 44px;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #2b665e;
+  margin: 30px;
+  height: 40px;
+  appearance: button;
+}
+
+.detailButton:hover {
+  background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
+  background-color: #6c7c7c;
+}
+
+.detailButton:active {
+  position: relative;
+  top: 1px;
 }
 /*
 .buttonAnfang {
@@ -155,61 +267,57 @@ table {
   width: 50%;
   text-align: center;
 }
-th,td {
- border: 1px solid #ddd;
+
+th, td {
+  border: 1px solid #ddd;
   padding-left: 10px;
 }
 
 /* Style für Kontenkasten */
-
 main {
-    padding: 1em;
+  padding: 1em;
 }
 
 /* Liste der Notizen */
-main > #content > ul {
-    list-style: none;
-    padding: 0;
-}
-main > #content > ul > li {
-    display: inline-block;
-    vertical-align: top;
-    margin-right: 1em;
-
-    padding: 1em;
-    border: 1px solid rgb(155, 155, 150);
-    background: rgb(219, 219, 219);
-    box-shadow: 5px 4px 2px rgba(153, 147, 147, 0.5);
-
-    min-width: 10em;
-    min-height: 10em;
-    max-width: 20em;
-    max-height: 20em;
-    position: relative;
-    padding-bottom: 2.5em;
-    border-radius: 10px;
+main>#content>ul {
+  list-style: none;
+  padding: 0;
 }
 
-
-main > #content > ul > li > p {
-    margin: 0;
+main>#content>ul>li {
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 1em;
+  padding: 1em;
+  border: 1px solid rgb(155, 155, 150);
+  background: rgb(219, 219, 219);
+  box-shadow: 5px 4px 2px rgba(153, 147, 147, 0.5);
+  min-width: 10em;
+  min-height: 10em;
+  max-width: 20em;
+  max-height: 20em;
+  position: relative;
+  padding-bottom: 2.5em;
+  border-radius: 10px;
 }
 
-main > #content > ul > li > p >label {
-    margin: 0;
+main>#content>ul>li>p {
+  margin: 0;
 }
 
-main> #content  > ul > li > .details {
-    position: absolute;
-    right: 1em;
-    bottom: 1em;
-
-    color: blue !important;
-    text-decoration: underline;
-
-    cursor: pointer;
+main>#content>ul>li>p>label {
+  margin: 0;
 }
 
-main > #content > ul > li > .details:hover {
-    color: rgb(0, 20, 25) !important;
+main>#content>ul>li>.details {
+  position: absolute;
+  right: 1em;
+  bottom: 1em;
+  color: blue !important;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+main>#content>ul>li>.details:hover {
+  color: rgb(0, 20, 25) !important;
 }

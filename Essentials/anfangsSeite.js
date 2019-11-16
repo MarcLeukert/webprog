@@ -23,21 +23,23 @@ class anfangsSeite {
     //let insertUser = () => {
 
     await refUser.once("value", async function(snapshot) {
-      User.allInstances = await snapshot.val();
-    }, function(errorObject) {
-      console.log("The read failed: " + errorObject.code);
-    });
+        User.allInstances = await snapshot.val();
+      },
+      function(errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      });
 
     await refTrip.once("value", async function(snapshot) {
-      Fahrt.allInstances = await snapshot.val();
-    }, function(errorObject) {
-      console.log("The read failed: " + errorObject.code);
-    });
+        Fahrt.allInstances = await snapshot.val();
+      },
+      function(errorObject) {
+        console.log("The read failed: " + errorObject.code);
+      });
 
     for (let i = 0; Object.keys(User.allInstances).length > i; i++) {
 
       let liElement = document.createElement("li");
-      liElement.setAttribute("class","liItemAnfang");
+      liElement.setAttribute("class", "liItemAnfang");
       memoList.appendChild(liElement);
 
 
@@ -80,7 +82,7 @@ class anfangsSeite {
       //Detailbutton
       let detailsElement = document.createElement("button");
       detailsElement.textContent = "Details";
-      detailsElement.classList.add("details");
+      detailsElement.setAttribute("class","detailButton");
       detailsElement.setAttribute("id", "detailNr" + i);
       liElement.appendChild(detailsElement);
 
@@ -222,13 +224,4 @@ function tabelleFahrtBefuellen() {
       table.appendChild(row);
     }
   }
-  //insertMemo("");
-
-  // Event Handler
-  // newButton.addEventListener("click", () => {
-  //   // hier muss der button wenn auf erstelle neures Konto
-  //   insertUser("");
-  // });
-
-  //}
 }

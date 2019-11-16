@@ -197,7 +197,10 @@ body {
   text-align: center;
   text-decoration: none;
   text-shadow: 0px 1px 0px #2b665e;
-  margin: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   height: 40px;
   appearance: button;
 }
@@ -287,17 +290,16 @@ main>#content>ul {
 main>#content>ul>li {
   display: inline-block;
   vertical-align: top;
-  margin-right: 1em;
+  margin: 1em;
   padding: 1em;
   border: 1px solid rgb(155, 155, 150);
   background: rgb(219, 219, 219);
   box-shadow: 5px 4px 2px rgba(153, 147, 147, 0.5);
   min-width: 10em;
   min-height: 10em;
-  max-width: 20em;
-  max-height: 20em;
+  max-width: 30em;
+  max-height: 30em;
   position: relative;
-  padding-bottom: 2.5em;
   border-radius: 10px;
 }
 

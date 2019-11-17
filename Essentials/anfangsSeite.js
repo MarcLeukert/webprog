@@ -63,11 +63,13 @@ class anfangsSeite {
         forderungen = Object.keys(User.allInstances)[i].sumForderungen;
       }
       let forderungElement = document.createElement("label");
+      forderungElement.style.color = "Green";
       forderungElement.textContent = forderungen;
       liElement.appendChild(forderungElement);
 
       let label_verb = "Verbindlichkeiten:";
       let label_verbElement = document.createElement("div");
+
       label_verbElement.textContent = label_verb;
       liElement.appendChild(label_verbElement);
 
@@ -77,8 +79,12 @@ class anfangsSeite {
       }
       let verbElement = document.createElement("label");
       verbElement.textContent = verb;
+      verbElement.style.color = "Tomato";
 
       liElement.appendChild(verbElement);
+      // insert break
+      let br = document.createElement("br");
+      liElement.appendChild(br);
       //Detailbutton
       let detailsElement = document.createElement("button");
       detailsElement.textContent = "Details";

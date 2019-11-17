@@ -121,7 +121,7 @@ class Fahrt {
 
 
   verbindlichkeitHinzufuegen() {
-    let instances = User.allInstances;
+    let instances = Object.entries(User.allInstances)[1];
     let j = 0, help,
       i = 0;
     for (j; j < instances.length; j++) {

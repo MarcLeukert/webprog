@@ -76,20 +76,38 @@ class Fahrt {
     }
 
     for (j; j < Object.entries(User.allInstances).length; j++){
-      let userIDdb = Object.entries(User.allInstances)[j][1].userID;
+      let userID = Object.entries(User.allInstances)[j][1].userID;
+      let vorname = Object.entries(User.allInstances)[j][1].vorname;
+      let nachname = Object.entries(User.allInstances)[j][1].nachname;
+      // let amountForderungen = Object.entries(User.allInstances)[j][1].amountForderungen;
+      // let amountVerbindlichkeiten = Object.entries(User.allInstances)[j][1].amountVerbindlichkeiten;
       let wertdb = Object.entries(User.allInstances)[j][1].sumForderungen;
-      if (fahrerID == userIDdb){
+      let sumVerbindlichkeiten = Object.entries(User.allInstances)[j][1].sumVerbindlichkeiten;
+
+      if (fahrerID == userID){
         wertdb = wertdb + wert;
-        writeForderungen(wertdb);
+        this.writeUserData( userID, vorname, nachname,
+          // amountForderungen, amountVerbindlichkeiten, 
+          wertdb, sumVerbindlichkeiten);
       }
     }
   }
-  writeForderungen(wertdb) {
-    firebase.database().ref('users/' + userID).set({
-      sumForderungen: wertdb
-    });
 
+  writeUserData(userID, vorname, nachname,
+    // amountForderungen, amountVerbindlichkeiten,
+    wertdb, sumVerbindlichkeiten) {
+    firebase.database().ref('users/' + userID).set({
+      userID: userID,
+      vorname: vorname,
+      nachname: nachname,
+      // amountForderungen: amountForderungen,
+      // amountVerbindlichkeiten: amountVerbindlichkeiten,
+      sumForderungen: wertdb,
+      sumVerbindlichkeiten: sumVerbindlichkeiten
+    });
   }
+
+
   //
   // forderungHinzufuegen() {
   //   let instances = User.allInstances;

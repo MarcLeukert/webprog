@@ -17,7 +17,7 @@ class Fahrt {
     this.verbindlichkeiten = this.verbindlichkeitErstellen();
     // this.forderung = new Forderung     wie solls weiter gehen
     this.forderungHinzufuegen(this.fahrerID, this.preis);
-    this.verbindlichkeitHinzufuegen();
+    this.verbindlichkeitHinzufuegen(this.mitfahrerIDs, this.preis);
 
 
     // if(Fahrt.allInstances == 'undefined' || Fahrt.allInstances == null){
@@ -32,7 +32,7 @@ class Fahrt {
   kostenBerechen() {
     let kostenProPerson = 0;
     let gesamtKosten = this.verb * this.dist * this.preisProL;
-    gesamtKosten = gesamtKosten /100;
+    gesamtKosten = gesamtKosten / 100;
     kostenProPerson = gesamtKosten / (this.mitfahrerIDs.length + 1);
 
     return kostenProPerson;
@@ -53,13 +53,13 @@ class Fahrt {
 
   verbindlichkeitErstellen() {
     let neueVerbindlichkeit = [];
-  /*  if (this.verbindlichkeitsID == 'undefined' || this.verbindlichkeitsID == null) {
-      this.verbindlichkeitsID = 2000;
-    }*/
+    /*  if (this.verbindlichkeitsID == 'undefined' || this.verbindlichkeitsID == null) {
+        this.verbindlichkeitsID = 2000;
+      }*/
     for (i = 0; i < this.mitfahrerIDs.length; i++) {
 
       let array = [];
-      array = new Verbindlichkeit( this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.preis);
+      array = new Verbindlichkeit(this.fahrerID, this.mitfahrerIDs[i], this.fahrtID, this.preis);
 
       neueVerbindlichkeit[i] = array;
       //this.verbindlichkeitsID = this.verbindlichkeitsID + 1;
@@ -68,41 +68,66 @@ class Fahrt {
   }
 
   forderungHinzufuegen(fahrerID, wert) {
-    let instances = User.allInstances;
-    let j = 0;
-    let x = 0;
-    for (x; x < this.forderungen.length; x++){
+    let x = 0,
+      j = 0;
+    let len = this.forderungen.length;
+    for (x; x < len; x++) {
+      j = 0;
+      for (j; j < Object.entries(User.allInstances).length; j++) {
+        let userID = Object.entries(User.allInstances)[j][1].userID;
+        let vorname = Object.entries(User.allInstances)[j][1].vorname;
+        let nachname = Object.entries(User.allInstances)[j][1].nachname;
+        // let amountForderungen = Object.entries(User.allInstances)[j][1].amountForderungen;
+        // let amountVerbindlichkeiten = Object.entries(User.allInstances)[j][1].amountVerbindlichkeiten;
+        let sumForderungen = Object.entries(User.allInstances)[j][1].sumForderungen;
+        let sumVerbindlichkeiten = Object.entries(User.allInstances)[j][1].sumVerbindlichkeiten;
 
+        if (fahrerID == userID) {
+          sumForderungen = sumForderungen + wert;
+          this.writeUserData(userID, vorname, nachname,
+            // amountForderungen, amountVerbindlichkeiten,
+            sumForderungen, sumVerbindlichkeiten);
+        }
+      }
     }
+  }
 
-    for (j; j < Object.entries(User.allInstances).length; j++){
-      let userID = Object.entries(User.allInstances)[j][1].userID;
-      let vorname = Object.entries(User.allInstances)[j][1].vorname;
-      let nachname = Object.entries(User.allInstances)[j][1].nachname;
-      // let amountForderungen = Object.entries(User.allInstances)[j][1].amountForderungen;
-      // let amountVerbindlichkeiten = Object.entries(User.allInstances)[j][1].amountVerbindlichkeiten;
-      let wertdb = Object.entries(User.allInstances)[j][1].sumForderungen;
-      let sumVerbindlichkeiten = Object.entries(User.allInstances)[j][1].sumVerbindlichkeiten;
+  verbindlichkeitHinzufuegen(mitfahrerIDs, wert) {
+    let j = 0,
+      x = 0,
+      z = 0;
+    for (z; z < mitfahrerIDs.length; z++) {
 
-      if (fahrerID == userID){
-        wertdb = wertdb + wert;
-        this.writeUserData( userID, vorname, nachname,
-          // amountForderungen, amountVerbindlichkeiten, 
-          wertdb, sumVerbindlichkeiten);
+      j = 0;
+      for (j; j < Object.entries(User.allInstances).length; j++) {
+        let userID = Object.entries(User.allInstances)[j][1].userID;
+        let vorname = Object.entries(User.allInstances)[j][1].vorname;
+        let nachname = Object.entries(User.allInstances)[j][1].nachname;
+        // let amountForderungen = Object.entries(User.allInstances)[j][1].amountForderungen;
+        // let amountVerbindlichkeiten = Object.entries(User.allInstances)[j][1].amountVerbindlichkeiten;
+        let sumForderungen = Object.entries(User.allInstances)[j][1].sumForderungen;
+        let sumVerbindlichkeiten = Object.entries(User.allInstances)[j][1].sumVerbindlichkeiten;
+
+        if (mitfahrerIDs[z] == userID) {
+          sumVerbindlichkeiten = sumVerbindlichkeiten + wert;
+          this.writeUserData(userID, vorname, nachname,
+            // amountForderungen, amountVerbindlichkeiten,
+            sumForderungen, sumVerbindlichkeiten);
+        }
       }
     }
   }
 
   writeUserData(userID, vorname, nachname,
     // amountForderungen, amountVerbindlichkeiten,
-    wertdb, sumVerbindlichkeiten) {
+    sumForderungen, sumVerbindlichkeiten) {
     firebase.database().ref('users/' + userID).set({
       userID: userID,
       vorname: vorname,
       nachname: nachname,
       // amountForderungen: amountForderungen,
       // amountVerbindlichkeiten: amountVerbindlichkeiten,
-      sumForderungen: wertdb,
+      sumForderungen: sumForderungen,
       sumVerbindlichkeiten: sumVerbindlichkeiten
     });
   }
@@ -118,35 +143,37 @@ class Fahrt {
   //       instances[j].updateSumForderungen();
   //   }
   // }
+  /*
 
-
-  verbindlichkeitHinzufuegen() {
-    let instances = Object.entries(User.allInstances)[1];
-    let j = 0, help,
-      i = 0;
-    for (j; j < instances.length; j++) {
-      i = 0;
-      for (i; i < this.mitfahrerIDs.length;i++) {
-        if (instances[j].userID == this.mitfahrerIDs[i]) {
-          help = this.verbindlichkeiten[i];
-          instances[j].amountVerbindlichkeiten.push(this.verbindlichkeiten[i]);
-          instances[j].updateSumVerbindlichkeiten();
+    verbindlichkeitHinzufuegen() {
+      let instances = Object.entries(User.allInstances)[1];
+      let j = 0, help,
+        i = 0;
+      for (j; j < instances.length; j++) {
+        i = 0;
+        for (i; i < this.mitfahrerIDs.length;i++) {
+          if (instances[j].userID == this.mitfahrerIDs[i]) {
+            help = this.verbindlichkeiten[i];
+            instances[j].amountVerbindlichkeiten.push(this.verbindlichkeiten[i]);
+            instances[j].updateSumVerbindlichkeiten();
+          }
         }
       }
     }
-  }
-  writeTripData(fahrtID, fahrerID, mitfahrerIDs, von, nach, preis, dist, verb, datum, notiz){
+
+    */
+  writeTripData(fahrtID, fahrerID, mitfahrerIDs, von, nach, preis, dist, verb, datum, notiz) {
     firebase.database().ref('trips/' + fahrtID).set({
-      fahrtID : fahrtID,
-      fahrerID : fahrerID,
-      mitfahrerIDs : Object.values(mitfahrerIDs),
-      von : von,
+      fahrtID: fahrtID,
+      fahrerID: fahrerID,
+      mitfahrerIDs: Object.values(mitfahrerIDs),
+      von: von,
       nach: nach,
-      preis : preis,
+      preis: preis,
       dist: dist,
       verb: verb,
       datum: datum,
       notiz: notiz
-      });
+    });
   }
 }

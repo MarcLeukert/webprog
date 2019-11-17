@@ -35,7 +35,8 @@ class Fahrt {
     gesamtKosten = gesamtKosten / 100;
     kostenProPerson = gesamtKosten / (this.mitfahrerIDs.length + 1);
 
-    return kostenProPerson;
+    parseFloat(kostenProPerson);
+    return kostenProPerson.toFixed(2);
   }
 
   forderungErstellen() {

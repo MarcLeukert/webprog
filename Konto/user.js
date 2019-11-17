@@ -82,7 +82,7 @@ class User {
     }
   }
 
-  writeUserData(userID, vorname, nachname, amountForderungen, amountVerbindlichkeiten) {
+  writeUserData(userID, vorname, nachname, amountForderungen, amountVerbindlichkeiten, sumForderungen, sumVerbindlichkeiten) {
     firebase.database().ref('users/' + userID).set({
       userID: userID,
       vorname: vorname,

@@ -59,8 +59,8 @@ class anfangsSeite {
       liElement.appendChild(label_forderungElement);
 
       let forderungen = 0;
-      if (Object.keys(User.allInstances)[i].sumForderungen != undefined) {
-        forderungen = Object.keys(User.allInstances)[i].sumForderungen;
+      if (Object.keys(User.allInstances)[i][1].sumForderungen != undefined) {
+        forderungen = Object.keys(User.allInstances)[i][1].sumForderungen;
       }
       let forderungElement = document.createElement("label");
       forderungElement.style.color = "Green";
@@ -74,8 +74,8 @@ class anfangsSeite {
       liElement.appendChild(label_verbElement);
 
       let verb = 0;
-      if (Object.keys(User.allInstances)[i].sumVerbindlichkeiten != undefined) {
-        verb = Object.keys(User.allInstances)[i].sumVerbindlichkeiten;
+      if (Object.keys(User.allInstances)[i][1].sumVerbindlichkeiten != undefined) {
+        verb = Object.keys(User.allInstances)[i][1].sumVerbindlichkeiten;
       }
       let verbElement = document.createElement("label");
       verbElement.textContent = verb;
@@ -106,13 +106,12 @@ class anfangsSeite {
       detailDiv.textContent = "Keine Details vorhanden";
 
       let createdTable = detailDiv;
-      if (Object.keys(User.allInstances)[i].sumVerbindlichkeiten != undefined || Object.keys(User.allInstances)[i].sumForderungen != undefined) {
+      if (Object.keys(User.allInstances)[i][1].sumVerbindlichkeiten != undefined || Object.keys(User.allInstances)[i][1].sumForderungen != undefined) {
         createdTable = createDetailsTable(i);
       }
 
       divContent.appendChild(createdTable);
 
-      //divContent.innerText = "Servus Erdnuss";
       spanClose.innerText = "x";
       divModalInhalt.appendChild(spanClose);
       divModalInhalt.appendChild(divContent);
@@ -145,8 +144,8 @@ function createDetailsTable(derZaehler) {
   var orderArrayHeader = ["Art", "An / Von", "Betrag", "Datum der Fahrt"];
   var forderungen = [],
     verbindlichkeiten = [];
-  forderungen = Object.keys(User.allInstances)[zaehler].amountForderungen;
-  verbindlichkeiten = Object.keys(User.allInstances)[zaehler].amountVerbindlichkeiten;
+  forderungen = Object.keys(User.allInstances)[zaehler][1].amountForderungen;
+  verbindlichkeiten = Object.keys(User.allInstances)[zaehler][1].amountVerbindlichkeiten;
 
   let thead = table.createTHead();
   let row = thead.insertRow();

@@ -183,8 +183,8 @@ body {
 }
 .detailButton {
   /*box-shadow: 3px 4px 0px 0px #2f4f4b; */
-  background: linear-gradient(to bottom, #768d87 5%, #6c7c7c 100%);
-  background-color: #768d87;
+  background: linear-gradient(to bottom, #bdc3c7 5%, #2c3e50 100%);
+  background-color: #768d00;
   border-radius: 5px;
   border: 1px solid #566963;
   display: inline-block;
@@ -206,8 +206,8 @@ body {
 }
 
 .detailButton:hover {
-  background: linear-gradient(to bottom, #6c7c7c 5%, #768d87 100%);
-  background-color: #6c7c7c;
+  background: linear-gradient(to bottom, #2c3e50 5%, #bdc3c7 100%);
+  background-color: #bdc3c7;
 }
 
 .detailButton:active {

@@ -16,7 +16,7 @@ class Fahrt {
     this.forderungen = this.forderungErstellen();
     this.verbindlichkeiten = this.verbindlichkeitErstellen();
     // this.forderung = new Forderung     wie solls weiter gehen
-    this.forderungHinzufuegen();
+    this.forderungHinzufuegen(this.fahrerID, this.preis);
     this.verbindlichkeitHinzufuegen();
 
 
@@ -67,15 +67,40 @@ class Fahrt {
     return neueVerbindlichkeit;
   }
 
-  forderungHinzufuegen() {
-    let instances = Object.entries(User.allInstances)[1];
+  forderungHinzufuegen(fahrerID, wert) {
+    let instances = User.allInstances;
     let j = 0;
-    for (j; j < instances.length; j++) {
-      if (instances[j].userID == this.fahrerID)
-        instances[j].amountForderungen = this.forderungen;
-        instances[j].updateSumForderungen();
+    let x = 0;
+    for (x; x < this.forderungen.length; x++){
+
+    }
+
+    for (j; j < Object.entries(User.allInstances).length; j++){
+      let userIDdb = Object.entries(User.allInstances)[j][1].userID;
+      let wertdb = Object.entries(User.allInstances)[j][1].sumForderungen;
+      if (fahrerID == userIDdb){
+        wertdb = wertdb + wert;
+        writeForderungen(wertdb);
+      }
     }
   }
+  writeForderungen(wertdb) {
+    firebase.database().ref('users/' + userID).set({
+      sumForderungen: wertdb
+    });
+
+  }
+  //
+  // forderungHinzufuegen() {
+  //   let instances = User.allInstances;
+  //   let j = 0;
+  //   for (j; j < instances.length; j++) {
+  //     if (instances[j].userID == this.fahrerID)
+  //       instances[j].amountForderungen = this.forderungen;
+  //       instances[j].updateSumForderungen();
+  //   }
+  // }
+
 
   verbindlichkeitHinzufuegen() {
     let instances = Object.entries(User.allInstances)[1];

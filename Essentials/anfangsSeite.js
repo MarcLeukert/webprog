@@ -59,8 +59,8 @@ class anfangsSeite {
       liElement.appendChild(label_forderungElement);
 
       let forderungen = 0;
-      if (Object.keys(User.allInstances)[i][1].sumForderungen != undefined) {
-        forderungen = Object.keys(User.allInstances)[i][1].sumForderungen;
+      if (Object.entries(User.allInstances)[i][1].sumForderungen != undefined) {
+        forderungen = Object.entries(User.allInstances)[i][1].sumForderungen;
       }
       let forderungElement = document.createElement("label");
       forderungElement.style.color = "Green";
@@ -74,8 +74,8 @@ class anfangsSeite {
       liElement.appendChild(label_verbElement);
 
       let verb = 0;
-      if (Object.keys(User.allInstances)[i][1].sumVerbindlichkeiten != undefined) {
-        verb = Object.keys(User.allInstances)[i][1].sumVerbindlichkeiten;
+      if (Object.entries(User.allInstances)[i][1].sumVerbindlichkeiten != undefined) {
+        verb = Object.entries(User.allInstances)[i][1].sumVerbindlichkeiten;
       }
       let verbElement = document.createElement("label");
       verbElement.textContent = verb;

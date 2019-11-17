@@ -68,7 +68,7 @@ class Fahrt {
   }
 
   forderungHinzufuegen() {
-    let instances = User.allInstances;
+    let instances = Object.entries(User.allInstances)[1];
     let j = 0;
     for (j; j < instances.length; j++) {
       if (instances[j].userID == this.fahrerID)
@@ -76,8 +76,9 @@ class Fahrt {
         instances[j].updateSumForderungen();
     }
   }
+
   verbindlichkeitHinzufuegen() {
-    let instances = User.allInstances;
+    let instances = Object.entries(User.allInstances)[1];
     let j = 0, help,
       i = 0;
     for (j; j < instances.length; j++) {

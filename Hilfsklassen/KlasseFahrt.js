@@ -35,8 +35,7 @@ class Fahrt {
     gesamtKosten = gesamtKosten / 100;
     kostenProPerson = gesamtKosten / (this.mitfahrerIDs.length + 1);
 
-    parseFloat(kostenProPerson);
-    return kostenProPerson.toFixed(2);
+    return kostenProPerson;
   }
 
   forderungErstellen() {
@@ -86,9 +85,10 @@ class Fahrt {
         if (fahrerID == userID) {
           sumForderungen = sumForderungen + wert;
           // löscht null, die standardmäsig in der Datenbanmk steht
-          while(sumForderungen.charAt(0) == 0 ){
-            sumForderungen = sumForderungen.substr(1);
-          }
+          // while(sumForderungen.charAt(0) == 0 ){
+          //   sumForderungen = sumForderungen.substr(1);
+          // }
+          sumForderungen = Math.round(sumForderungen *100)/100;
           this.writeUserData(userID, vorname, nachname,
             // amountForderungen, amountVerbindlichkeiten,
             sumForderungen, sumVerbindlichkeiten);
@@ -116,9 +116,10 @@ class Fahrt {
         if (mitfahrerIDs[z] == userID) {
           sumVerbindlichkeiten = sumVerbindlichkeiten + wert;
           // löscht null, die standardmäsig in der Datenbanmk steht
-          while(sumVerbindlichkeiten.charAt(0) == 0 ){
-            sumVerbindlichkeiten = sumVerbindlichkeiten.substr(1);
-          }
+          // while(sumVerbindlichkeiten.charAt(0) == 0 ){
+          //   sumVerbindlichkeiten = sumVerbindlichkeiten.substr(1);
+          // }
+          sumVerbindlichkeiten = Math.round(sumVerbindlichkeiten*100)/100;
 
           this.writeUserData(userID, vorname, nachname,
             // amountForderungen, amountVerbindlichkeiten,

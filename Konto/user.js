@@ -68,6 +68,7 @@ class User {
       }
       this.sumForderungen = sum;
     }
+    return sum;
   }
 
   updateSumVerbindlichkeiten() {
@@ -80,6 +81,7 @@ class User {
       }
       this.sumVerbindlichkeiten = sum;
     }
+    return sum;
   }
 
   writeUserData(userID, vorname, nachname, amountForderungen, amountVerbindlichkeiten, sumForderungen, sumVerbindlichkeiten) {

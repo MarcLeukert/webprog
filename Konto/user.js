@@ -88,7 +88,9 @@ class User {
       vorname: vorname,
       nachname: nachname,
       amountForderungen: amountForderungen,
-      amountVerbindlichkeiten: amountVerbindlichkeiten
+      amountVerbindlichkeiten: amountVerbindlichkeiten,
+      sumForderungen: sumForderungen,
+      sumVerbindlichkeiten: sumVerbindlichkeiten
     });
   }
 

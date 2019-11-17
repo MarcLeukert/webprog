@@ -161,7 +161,7 @@ function mitfahrerHinzufuegen(anzahlMitfahrerSelects) {
   let neuesSpan = document.createElement("span");
   let neuesSelect = document.createElement("select");
   let data = document.createTextNode("");
-  let instances = User.allInstances;
+  let instances = Object.values(User.allInstances);
   neuesSpan.setAttribute("class", "spanAttribut");
   let neueOptions = [];
   for (i = 0; i < instances.length; i++) {
